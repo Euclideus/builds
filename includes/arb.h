@@ -1097,8 +1097,8 @@ ARB_API void            SimulatedAnnealing(double (*)(double *),double *,double 
 ARB_API cmplx           SinC(cmplx);
 ARB_API double          SincFunc(double);
 ARB_API cmplx           SinhC(cmplx);
-ARB_API char           *SmileyHash(char **, int32_t);
-ARB_API char           *SmileyHexHash(char **,int32_t);
+ARB_API char           *SmileyHash(char **, int32_t, char slow);
+ARB_API char           *SmileyHexHash(char **,int32_t, char slow);
 ARB_API void            SmoothFFT(cmplx **,int32_t,int32_t);
 ARB_API void            SmoothFFTV(cmplx *,int32_t,int32_t);
 ARB_API void            SmoothSpline(double *,double *,int32_t);
