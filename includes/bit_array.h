@@ -41,6 +41,7 @@ typedef struct bit_array_float {
 }bit_array_float;
 
 BIT_ARRAY_API bit_array *InitializeBitArray(uint64_t size);
+BIT_ARRAY_API bit_array* InitializeBitArrayFromUint64(uint64_t val);
 BIT_ARRAY_API void FreeBitArray(void *bav);
 BIT_ARRAY_API void SetBit(bit_array *ba, uint64_t pos);
 BIT_ARRAY_API void ClearBit(bit_array *ba, uint64_t pos);
@@ -50,7 +51,12 @@ BIT_ARRAY_API void SetAllBitsSieve(bit_array* ba);
 BIT_ARRAY_API void SetBitsFromInt64(bit_array *ba, uint64_t pos, uint64_t num);
 BIT_ARRAY_API uint32_t GetInt32(bit_array *ba, uint64_t pos);
 BIT_ARRAY_API uint64_t GetInt64(bit_array *ba, uint64_t pos);
+BIT_ARRAY_API uint64_t GetInt64BitPos(bit_array* ba, uint64_t pos);
+BIT_ARRAY_API unsigned char ReverseByteBits(unsigned char b);
+BIT_ARRAY_API uint32_t ReverseUint32Bits(uint32_t b);
+BIT_ARRAY_API uint64_t ReverseUint64Bits(uint64_t b);
 BIT_ARRAY_API void SetBitsFromChar(bit_array *ba, uint64_t pos, char c);
+BIT_ARRAY_API void SetBitsFromCharBitPos(bit_array* ba, uint64_t pos, char c);
 BIT_ARRAY_API void ClearAllBits(bit_array *ba);
 BIT_ARRAY_API void ShiftBitsLeft(bit_array* ba, uint64_t n);
 BIT_ARRAY_API void ShiftBitsLeftAndResize(bit_array* ba, uint64_t n);
