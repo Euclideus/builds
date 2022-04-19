@@ -41,7 +41,7 @@ typedef struct bit_array_float {
 }bit_array_float;
 
 BIT_ARRAY_API bit_array *InitializeBitArray(uint64_t size);
-BIT_ARRAY_API bit_array* InitializeBitArrayFromUint64(uint64_t val);
+BIT_ARRAY_API bit_array* InitializeBitArrayFromUInt64(uint64_t val);
 BIT_ARRAY_API void FreeBitArray(void *bav);
 BIT_ARRAY_API void SetBit(bit_array *ba, uint64_t pos);
 BIT_ARRAY_API void ClearBit(bit_array *ba, uint64_t pos);
@@ -53,8 +53,8 @@ BIT_ARRAY_API uint32_t GetInt32(bit_array *ba, uint64_t pos);
 BIT_ARRAY_API uint64_t GetInt64(bit_array *ba, uint64_t pos);
 BIT_ARRAY_API uint64_t GetInt64BitPos(bit_array* ba, uint64_t pos);
 BIT_ARRAY_API unsigned char ReverseByteBits(unsigned char b);
-BIT_ARRAY_API uint32_t ReverseUint32Bits(uint32_t b);
-BIT_ARRAY_API uint64_t ReverseUint64Bits(uint64_t b);
+BIT_ARRAY_API uint32_t ReverseUInt32Bits(uint32_t b);
+BIT_ARRAY_API uint64_t ReverseUInt64Bits(uint64_t b);
 BIT_ARRAY_API void SetBitsFromChar(bit_array *ba, uint64_t pos, char c);
 BIT_ARRAY_API void SetBitsFromCharBitPos(bit_array* ba, uint64_t pos, char c);
 BIT_ARRAY_API void ClearAllBits(bit_array *ba);
@@ -72,7 +72,7 @@ BIT_ARRAY_API bit_array* OrBitArrays(bit_array* ba1, bit_array* ba2);
 BIT_ARRAY_API bit_array* XorBitArrays(bit_array* ba1, bit_array* ba2);
 BIT_ARRAY_API void NegateBitArray(bit_array* ba1);
 BIT_ARRAY_API char TestZeroBitArray(bit_array* ba);
-BIT_ARRAY_API uint64_t DivideUint64By10(uint64_t n);
+BIT_ARRAY_API uint64_t DivideUInt64By10(uint64_t n);
 BIT_ARRAY_API bit_array* IntDivideBitArrayBy10(bit_array* ba1);
 BIT_ARRAY_API bit_array* DivideBitArrayBy10(bit_array* ba, uint8_t* remainder);
 BIT_ARRAY_API bit_array* DivideBitArrayByPowerOf10(bit_array* ba, uint64_t pow10);
@@ -110,6 +110,7 @@ BIT_ARRAY_API uint64_t KaratsubaMultiply(uint64_t x, uint64_t y);
 BIT_ARRAY_API uint64_t KaratsubaGetLength(uint64_t value);
 BIT_ARRAY_API bit_array* BitArrayFactorial(bit_array* ba);
 BIT_ARRAY_API bit_array* ExponentiateBitArrays(bit_array* ba1, bit_array* ba2);
+BIT_ARRAY_API bit_array* BitArrayFromByteArray(unsigned char* bya, uint64_t nbytes);
 
 extern size_t max_size_t;
 extern uint64_t one_bit_array64_h;
