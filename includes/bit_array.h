@@ -41,6 +41,7 @@ typedef struct bit_array_float {
 }bit_array_float;
 
 BIT_ARRAY_API bit_array *InitializeBitArray(uint64_t size);
+BIT_ARRAY_API bit_array_float* InitializeBitArrayFloatFromDouble(double val);
 BIT_ARRAY_API bit_array* InitializeBitArrayFromUInt64(uint64_t val);
 BIT_ARRAY_API void FreeBitArray(void *bav);
 BIT_ARRAY_API void SetBit(bit_array *ba, uint64_t pos);
@@ -84,6 +85,7 @@ BIT_ARRAY_API char* BitArrayToBase10IntegerString(bit_array* ba);
 BIT_ARRAY_API char* DivideBy2(char* dec);
 BIT_ARRAY_API char* MultiplyBy2(char* dec);
 BIT_ARRAY_API bit_array* Base10IntegerStringToBitArray(char* dec);
+BIT_ARRAY_API bit_array_float* InitializeBitArrayFloat(char* floatval, uint64_t precision);
 BIT_ARRAY_API bit_array* Base10DecimalStringToBitArray(char* dec, uint64_t max_precision);
 BIT_ARRAY_API bit_array *ReduceBitArray(bit_array** ba);
 BIT_ARRAY_API void CleanBitArray(bit_array* ba);
@@ -96,6 +98,7 @@ BIT_ARRAY_API bit_array* ConcatenateBitArrays(bit_array* ba1, bit_array* ba2);
 BIT_ARRAY_API void FreeBitArrayFloat(void* bafv);
 BIT_ARRAY_API bit_array_float* InitializeBitArrayFloatFromBitArrays(bit_array* intg, bit_array* dec, char sgn);
 BIT_ARRAY_API bit_array_float *DivideBitArrays(bit_array* ba1, bit_array* ba2, uint64_t precision);
+BIT_ARRAY_API bit_array* FloorDivideBitArrays(bit_array* ba1, bit_array* ba2);
 BIT_ARRAY_API bit_array* LowerBits(bit_array* ba, uint64_t nbits);
 BIT_ARRAY_API bit_array_float* AddBitArrayFloats(bit_array_float* baf1, bit_array_float* baf2);
 BIT_ARRAY_API bit_array_float* SubtractBitArrayFloats(bit_array_float* baf1, bit_array_float* baf2);
@@ -109,8 +112,10 @@ BIT_ARRAY_API bit_array* HigherBits(bit_array* ba, uint64_t nbits);
 BIT_ARRAY_API uint64_t KaratsubaMultiply(uint64_t x, uint64_t y);
 BIT_ARRAY_API uint64_t KaratsubaGetLength(uint64_t value);
 BIT_ARRAY_API bit_array* BitArrayFactorial(bit_array* ba);
+BIT_ARRAY_API bit_array* ModBitArrays(bit_array* ba1, bit_array* ba2);
 BIT_ARRAY_API bit_array* ExponentiateBitArrays(bit_array* ba1, bit_array* ba2);
-BIT_ARRAY_API bit_array* BitArrayFromByteArray(unsigned char* bya, uint64_t nbytes);
+BIT_ARRAY_API bit_array* InitializeBitArrayFromByteArray(unsigned char* bya, uint64_t nbytes);
+BIT_ARRAY_API char* PrintBitArray(bit_array*);
 
 extern size_t max_size_t;
 extern uint64_t one_bit_array64_h;

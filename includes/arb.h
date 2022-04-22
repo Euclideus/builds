@@ -891,6 +891,7 @@ ARB_API int32_t            PosL(int32_t,int32_t *);
 ARB_API cmplx           PowC(cmplx,cmplx);
 ARB_API cmplx           PowCR(cmplx,double);
 ARB_API cmplx           PowIR(double,double);
+ARB_API uint64_t        PowMod(uint64_t,uint64_t,uint64_t);
 ARB_API double          PowerMethod(double **,double *,int32_t);
 ARB_API cmplx           PowerMethodC(cmplx **,cmplx *,int32_t);
 ARB_API double        **PowM(double **,int32_t);
@@ -910,8 +911,8 @@ ARB_API void            PrimeNumbersSub(double,uint64_t,uint64_t,bit_array *,uin
                                 double **);
 ARB_API double          PrimitiveRootPrime(double, char *);
 ARB_API void            Print(double);
-ARB_API char           *PrintBitArray(bit_array*);
 ARB_API char           *PrintBitArrayFloat(bit_array_float*);
+ARB_API char           *PrintBitArrayFloatBase10(bit_array_float *);
 ARB_API void            PrintC(cmplx);
 ARB_API void            PrintF(float);
 ARB_API void            PrintI(int32_t);
