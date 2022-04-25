@@ -911,8 +911,9 @@ ARB_API void            PrimeNumbersSub(double,uint64_t,uint64_t,bit_array *,uin
                                 double **);
 ARB_API double          PrimitiveRootPrime(double, char *);
 ARB_API void            Print(double);
-ARB_API char           *PrintBitArrayFloat(bit_array_float*);
-ARB_API char           *PrintBitArrayFloatBase10(bit_array_float *);
+ARB_API char           *PrintBitArrayFloat(bit_array_float *);
+ARB_API char           *PrintBitArrayFloatToDecimal(bit_array_float *);
+ARB_API char           *PrintBitArrayFloatToHexadecimal(bit_array_float *);
 ARB_API void            PrintC(cmplx);
 ARB_API void            PrintF(float);
 ARB_API void            PrintI(int32_t);
