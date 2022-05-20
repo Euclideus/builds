@@ -514,7 +514,6 @@ ARB_API void            FreeMatrixL(int32_t **);
 ARB_API void            FreeMatrixVector(double ***);
 ARB_API void            FreeMatrixVectorC(cmplx ***);
 ARB_API void            FreeMatrixVectorL(int32_t ***);
-ARB_API void            FreeString(char *s);
 ARB_API void            FreeStringMatrix(char ***);
 ARB_API void            FreeStringMatrixVector(char ****);
 ARB_API void            FreeStringVector(char **);
