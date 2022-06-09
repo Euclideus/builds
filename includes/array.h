@@ -14,17 +14,17 @@ typedef struct array{
   void *(*copy_value)(void *);
 }array;
 
-array initializeArray(int32_t n, void (*freefunc)(void *),
-                      void *(*readfunc)(void *,stream_type),
-                      void (*writefunc)(void *, void *,stream_type),
-                      void *(*copyfunc)(void *));
-void freeArray(array *a, int32_t v);
+array initializeArray(int32_t n,void (*freefunc)(void *),
+  void *(*readfunc)(void *,stream_type),
+  void (*writefunc)(void *,void *,stream_type),
+  void *(*copyfunc)(void *));
+void freeArray(array *a,int32_t v);
 void removePosition(array *a,int32_t pos);
 void readArrayFromFile(array *a,char *fname);
 void readArrayFromStream(array *a,void *fs,stream_type st);
 void writeArrayToFile(array *a,int32_t start,int32_t end,char *fname);
 void writeArrayToStream(array *a,int32_t start,int32_t end,void *fs,
-                        stream_type st);
+  stream_type st);
 void resizeArray(array *a,int32_t n);
 int32_t setElement(array *a,int32_t i,void *newval);
 void *getElement(array *a,int32_t i);

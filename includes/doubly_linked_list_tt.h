@@ -27,10 +27,10 @@ typedef struct dllist_tt{
 
 dlnode_tt *dll_initializeNode(int32_t key,void *val);
 dllist_tt dll_initialize(void (*freeDLNodeValueNull)(void *),
-                         void *(*readDLNodeValue)(void *,stream_type),
-                         void (*writeDLNodeValue)(void *,void *,stream_type));
-void dll_insertAfter(dllist_tt *dll, dlnode_tt *node, int32_t key, void *val);
-void dll_insertBefore(dllist_tt *head, dlnode_tt *node, int32_t key, void *val);
+  void *(*readDLNodeValue)(void *,stream_type),
+  void (*writeDLNodeValue)(void *,void *,stream_type));
+void dll_insertAfter(dllist_tt *dll,dlnode_tt *node,int32_t key,void *val);
+void dll_insertBefore(dllist_tt *head,dlnode_tt *node,int32_t key,void *val);
 void dll_freeNode(dllist_tt *dll,dlnode_tt *node,int32_t v);
 void dll_free(dllist_tt *root,int32_t v);
 dlnode_tt *dll_deleteNode(dllist_tt *dll,dlnode_tt *dln);
