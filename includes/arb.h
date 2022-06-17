@@ -124,6 +124,7 @@ ARB_API cmplx **AnalyticSignal(double **);
 ARB_API void AppendFilenameR(char **,char *);
 ARB_API void AppendMatrix(double ****,double **);
 ARB_API void AppendMatrixVector(double ****,double ***);
+ARB_API char *AppendChar(char x0,char **v);
 ARB_API char *AppendS(char **,char *);
 ARB_API char **AppendString(char ***,char *);
 ARB_API cmplx ArccosC(cmplx);
