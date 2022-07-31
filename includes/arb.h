@@ -85,7 +85,6 @@ typedef struct cmplx cmplx;
 typedef struct MEM_FILE MEM_FILE;
 
 typedef struct cmplx{
-
   double r;
   double i;
 }cmplx;
@@ -217,7 +216,7 @@ ARB_API double ChiSquare(double **,double (*)(double,double *),double *);
 ARB_API cmplx CI(void);
 ARB_API double *Col(double **,int32_t);
 ARB_API double Comb(int32_t,int32_t);
-ARB_API double CombFunc(double,double);
+ARB_API double CombSpikeFunc(double,double);
 ARB_API double **CombineMatrices(double **,double **);
 ARB_API int32_t **CombineMatricesL(int32_t **,int32_t **);
 ARB_API int32_t CompareFloats(double,double);
