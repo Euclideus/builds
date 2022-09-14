@@ -769,7 +769,7 @@ ARB_API void MemWrapperClose(MEM_FILE *f);
 ARB_API MEM_FILE *MemWrapperOpen(unsigned char *bytes,uint32_t size);
 ARB_API void MemFWrite(MEM_FILE *m1,FILE *f1);
 ARB_API unsigned char *MemDump(MEM_FILE *f,uint32_t startpos,uint32_t endpos);
-ARB_API unsigned char *MemGetBufHandle(MEM_FILE *f);;
+ARB_API unsigned char *MemGetBufHandle(MEM_FILE *f);
 ARB_API uint32_t MemGetBufPos(MEM_FILE *f);
 ARB_API uint32_t MemGetBufSize(MEM_FILE *f);
 ARB_API size_t MemRead(void *,size_t,size_t,MEM_FILE *);
