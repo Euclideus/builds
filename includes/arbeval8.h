@@ -63,7 +63,7 @@ ARBEVAL_API char SetUpdateHistoryFlag(arbenv *ae,char val);
 ARBEVAL_API size_t EnvironmentSize();
 ARBEVAL_API int32_t AtoL(char *nums);
 ARBEVAL_API double AtoF(char *nums);
-ARBEVAL_API int32_t TestNumericalString(char *,double *val);
+ARBEVAL_API int32_t TestNumericString(char *,double *val);
 int32_t TestBinaryNumberString(char *binstr1,double *num);
 ARBEVAL_API void FreeString(void *val);
 ARBEVAL_API char **GetPredefinedFunctionInfo(char *flabel);
