@@ -53,6 +53,7 @@ ARBEVAL_API void ClearEnvironmentHistory(arbenv *ae);
 ARBEVAL_API void WriteSettingsHeader(FILE *ff,char *hname,double version);
 ARBEVAL_API void WriteSettingsHeaderToStream(void *ff,double version,stream_type st);
 ARBEVAL_API rbtree *LoadFontFromStream(MEM_FILE *file);
+ARBEVAL_API int32_t TestWhitespaceExpression(char *expr);
 ARBEVAL_API void AppendHistoryItem(arbenv *ae,char *in,char *out);
 ARBEVAL_API void SetLastHistoryItemOutput(arbenv *ae,char *out);
 ARBEVAL_API unsigned char *DummyBitmap(int32_t cols,int32_t rows);
