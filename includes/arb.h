@@ -79,7 +79,7 @@ Zabcdefghijklmnopqrstuvwxyz"
 #define MAX_DIGITS 15
 #define EPSILON 1.0E-15
 
-typedef enum{ memory_stream,file_stream }stream_type;
+typedef enum stream_type { memory_stream,file_stream }stream_type;
 typedef struct cmplx cmplx;
 
 typedef struct MEM_FILE MEM_FILE;
