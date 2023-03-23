@@ -36,11 +36,9 @@
 
 typedef struct bit_array bit_array;
 typedef struct bit_array_float{
-
   bit_array *int_part;
   bit_array *dec_part;
   char sgn;
-
 }bit_array_float;
 
 BIT_ARRAY_API bit_array *InitializeBitArray(uint64_t size);
@@ -99,6 +97,7 @@ BIT_ARRAY_API bit_array *DecimalFractionalStringToBitArray(char *dec,uint64_t ma
 BIT_ARRAY_API bit_array *ReduceBitArray(bit_array **ba);
 BIT_ARRAY_API void CleanBitArray(bit_array *ba);
 BIT_ARRAY_API bit_array *CopyBitArray(bit_array *x);
+BIT_ARRAY_API void *CopyBitArrayFloat(void *valba);
 BIT_ARRAY_API char TestEqualBitArrays(bit_array *ba1,bit_array *ba2);
 BIT_ARRAY_API bit_array *MultiplyBitArrays(bit_array *x,bit_array *y);
 BIT_ARRAY_API bit_array *InvertBitArray(bit_array *ba,uint64_t precision,uint64_t *kshift);

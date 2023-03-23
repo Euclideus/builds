@@ -80,6 +80,7 @@ Zabcdefghijklmnopqrstuvwxyz"
 #define EPSILON 1.0E-15
 
 typedef enum stream_type { memory_stream,file_stream }stream_type;
+
 typedef struct cmplx cmplx;
 
 typedef struct MEM_FILE MEM_FILE;
@@ -972,8 +973,10 @@ ARB_API char* RandomStringBracketedExtASCII(char*,char*,int32_t*);
 ARB_API char *RandomStringCharSet(int32_t,char *,int32_t *);
 ARB_API char* RandomStringExtASCII(int32_t,int32_t*);
 ARB_API double Range(double*);
+ARB_API void *ReadBitArray(void *,stream_type);
+ARB_API void *ReadBitArrayFloat(void *,stream_type);
 ARB_API double Re(cmplx);
-ARB_API void* ReadMemFile(void* f,stream_type st);
+ARB_API void* ReadMemFile(void *,stream_type);
 ARB_API double** ReM(cmplx**);
 ARB_API double* ReV(cmplx*);
 ARB_API cmplx RealC(double);
@@ -1275,6 +1278,8 @@ ARB_API double Wigner3JSymbolSpecial2(double,double,double);
 ARB_API void Wigner3JSymbolsSpecial(double,double,double*,double*);
 ARB_API double Wrap(double,double);
 ARB_API void Write(char*,double);
+ARB_API void WriteBitArray(void *,void *,stream_type);
+ARB_API void WriteBitArrayFloat(void *,void *,stream_type);
 ARB_API void WriteByteArray(char*,unsigned char*,int32_t);
 ARB_API void WriteMemFile(void* val,void* f,stream_type st);
 ARB_API void WriteMV(char*,double***);
