@@ -116,6 +116,7 @@ BIT_ARRAY_API void AddTrailingZeroBits(bit_array *ba,uint64_t nzeros);
 BIT_ARRAY_API uint64_t CountLeadingZeroBits(uint64_t x);
 BIT_ARRAY_API uint64_t GetLeadingZeroBits(bit_array *ba);
 BIT_ARRAY_API bit_array_float *DivideBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2,uint64_t precision);
+BIT_ARRAY_API bit_array_float *ExponentiateBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2,uint64_t precision);
 BIT_ARRAY_API bit_array *HigherBits(bit_array *ba,uint64_t nbits);
 BIT_ARRAY_API uint64_t KaratsubaMultiply(uint64_t x,uint64_t y);
 BIT_ARRAY_API uint64_t KaratsubaGetLength(uint64_t value);
