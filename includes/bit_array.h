@@ -81,7 +81,7 @@ BIT_ARRAY_API bit_array *IntDivideBitArrayBy10(bit_array *ba1);
 BIT_ARRAY_API bit_array *DivideBitArrayBy10(bit_array *ba,uint8_t *remainder);
 BIT_ARRAY_API bit_array *DivideBitArrayByPowerOf10(bit_array *ba,uint64_t pow10);
 BIT_ARRAY_API bit_array *MultiplyBitArrayBy10(bit_array *ba,uint8_t *int_part);
-BIT_ARRAY_API char *BitArrayToDecimalFractionalString(bit_array *ba);
+BIT_ARRAY_API char *BitArrayToDecimalFractionalString(bit_array *ba, uint64_t ndecimals);
 BIT_ARRAY_API bit_array **GetPowerOf10BitArrays(uint64_t powmax);
 BIT_ARRAY_API char *BitArrayToHexadecimalIntegerString(bit_array *ba);
 BIT_ARRAY_API char *BitArrayToHexadecimalFractionalString(bit_array *ba);

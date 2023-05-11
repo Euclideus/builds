@@ -913,7 +913,7 @@ ARB_API void PrimeNumbersSub(double,uint64_t,uint64_t,bit_array*,uint64_t*,
 ARB_API double PrimitiveRootPrime(double,char*);
 ARB_API void Print(double);
 ARB_API char* PrintBitArrayFloat(bit_array_float*);
-ARB_API char* PrintBitArrayFloatToDecimal(bit_array_float*);
+ARB_API char* PrintBitArrayFloatToDecimal(bit_array_float*, int32_t sigdigits);
 ARB_API char* PrintBitArrayFloatToHexadecimal(bit_array_float*);
 ARB_API void PrintC(cmplx);
 ARB_API void PrintF(float);
@@ -1030,7 +1030,8 @@ ARB_API double** RK2(double (*)(double,double,double),double,double,double,
   double,int32_t);
 ARB_API double Round(double);
 ARB_API char* RoundDoubleString(char**,int32_t);
-ARB_API void RoundDoubleStringWithSpacePadding(char* ds,int32_t nd);
+ARB_API void RoundDoubleStringWithSpacePadding(char*,int32_t);
+ARB_API char *RoundIntegerString(char *,int32_t,char *);
 ARB_API double* Row(double**,int32_t);
 ARB_API void RungeKutta(double (*)(double,double,double),double,double,
   double,double,double*,double*,int32_t);
