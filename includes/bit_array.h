@@ -36,11 +36,9 @@
 
 typedef struct bit_array bit_array;
 typedef struct bit_array_float{
-
   bit_array *int_part;
   bit_array *dec_part;
   char sgn;
-
 }bit_array_float;
 
 BIT_ARRAY_API bit_array *InitializeBitArray(uint64_t size);
@@ -83,7 +81,7 @@ BIT_ARRAY_API bit_array *IntDivideBitArrayBy10(bit_array *ba1);
 BIT_ARRAY_API bit_array *DivideBitArrayBy10(bit_array *ba,uint8_t *remainder);
 BIT_ARRAY_API bit_array *DivideBitArrayByPowerOf10(bit_array *ba,uint64_t pow10);
 BIT_ARRAY_API bit_array *MultiplyBitArrayBy10(bit_array *ba,uint8_t *int_part);
-BIT_ARRAY_API char *BitArrayToDecimalFractionalString(bit_array *ba);
+BIT_ARRAY_API char *BitArrayToDecimalFractionalString(bit_array *ba, uint64_t ndecimals);
 BIT_ARRAY_API bit_array **GetPowerOf10BitArrays(uint64_t powmax);
 BIT_ARRAY_API char *BitArrayToHexadecimalIntegerString(bit_array *ba);
 BIT_ARRAY_API char *BitArrayToHexadecimalFractionalString(bit_array *ba);
@@ -99,6 +97,7 @@ BIT_ARRAY_API bit_array *DecimalFractionalStringToBitArray(char *dec,uint64_t ma
 BIT_ARRAY_API bit_array *ReduceBitArray(bit_array **ba);
 BIT_ARRAY_API void CleanBitArray(bit_array *ba);
 BIT_ARRAY_API bit_array *CopyBitArray(bit_array *x);
+BIT_ARRAY_API void *CopyBitArrayFloat(void *valba);
 BIT_ARRAY_API char TestEqualBitArrays(bit_array *ba1,bit_array *ba2);
 BIT_ARRAY_API bit_array *MultiplyBitArrays(bit_array *x,bit_array *y);
 BIT_ARRAY_API bit_array *InvertBitArray(bit_array *ba,uint64_t precision,uint64_t *kshift);
@@ -117,6 +116,7 @@ BIT_ARRAY_API void AddTrailingZeroBits(bit_array *ba,uint64_t nzeros);
 BIT_ARRAY_API uint64_t CountLeadingZeroBits(uint64_t x);
 BIT_ARRAY_API uint64_t GetLeadingZeroBits(bit_array *ba);
 BIT_ARRAY_API bit_array_float *DivideBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2,uint64_t precision);
+BIT_ARRAY_API bit_array_float *ExponentiateBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2,uint64_t precision);
 BIT_ARRAY_API bit_array *HigherBits(bit_array *ba,uint64_t nbits);
 BIT_ARRAY_API uint64_t KaratsubaMultiply(uint64_t x,uint64_t y);
 BIT_ARRAY_API uint64_t KaratsubaGetLength(uint64_t value);

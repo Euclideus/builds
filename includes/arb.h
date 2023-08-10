@@ -79,7 +79,8 @@ Zabcdefghijklmnopqrstuvwxyz"
 #define MAX_DIGITS 15
 #define EPSILON 1.0E-15
 
-typedef enum{ memory_stream,file_stream }stream_type;
+typedef enum stream_type { memory_stream,file_stream }stream_type;
+
 typedef struct cmplx cmplx;
 
 typedef struct MEM_FILE MEM_FILE;
@@ -912,7 +913,7 @@ ARB_API void PrimeNumbersSub(double,uint64_t,uint64_t,bit_array*,uint64_t*,
 ARB_API double PrimitiveRootPrime(double,char*);
 ARB_API void Print(double);
 ARB_API char* PrintBitArrayFloat(bit_array_float*);
-ARB_API char* PrintBitArrayFloatToDecimal(bit_array_float*);
+ARB_API char* PrintBitArrayFloatToDecimal(bit_array_float*, int32_t sigdigits);
 ARB_API char* PrintBitArrayFloatToHexadecimal(bit_array_float*);
 ARB_API void PrintC(cmplx);
 ARB_API void PrintF(float);
@@ -972,8 +973,10 @@ ARB_API char* RandomStringBracketedExtASCII(char*,char*,int32_t*);
 ARB_API char *RandomStringCharSet(int32_t,char *,int32_t *);
 ARB_API char* RandomStringExtASCII(int32_t,int32_t*);
 ARB_API double Range(double*);
+ARB_API void *ReadBitArray(void *,stream_type);
+ARB_API void *ReadBitArrayFloat(void *,stream_type);
 ARB_API double Re(cmplx);
-ARB_API void* ReadMemFile(void* f,stream_type st);
+ARB_API void* ReadMemFile(void *,stream_type);
 ARB_API double** ReM(cmplx**);
 ARB_API double* ReV(cmplx*);
 ARB_API cmplx RealC(double);
@@ -1027,7 +1030,8 @@ ARB_API double** RK2(double (*)(double,double,double),double,double,double,
   double,int32_t);
 ARB_API double Round(double);
 ARB_API char* RoundDoubleString(char**,int32_t);
-ARB_API void RoundDoubleStringWithSpacePadding(char* ds,int32_t nd);
+ARB_API void RoundDoubleStringWithSpacePadding(char*,int32_t);
+ARB_API char *RoundIntegerString(char *,int32_t,char *);
 ARB_API double* Row(double**,int32_t);
 ARB_API void RungeKutta(double (*)(double,double,double),double,double,
   double,double,double*,double*,int32_t);
@@ -1275,6 +1279,8 @@ ARB_API double Wigner3JSymbolSpecial2(double,double,double);
 ARB_API void Wigner3JSymbolsSpecial(double,double,double*,double*);
 ARB_API double Wrap(double,double);
 ARB_API void Write(char*,double);
+ARB_API void WriteBitArray(void *,void *,stream_type);
+ARB_API void WriteBitArrayFloat(void *,void *,stream_type);
 ARB_API void WriteByteArray(char*,unsigned char*,int32_t);
 ARB_API void WriteMemFile(void* val,void* f,stream_type st);
 ARB_API void WriteMV(char*,double***);
