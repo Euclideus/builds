@@ -24,7 +24,6 @@ typedef struct dl_list{
   int32_t size;
 }dl_list;
 
-
 void removeDLPosition(dl_list *dll,int32_t pos);
 dl_node *initializeDLNode(char *key,void *val);
 dl_list initializeDLList(void (*freeDLNodeValueNull)(void *),
