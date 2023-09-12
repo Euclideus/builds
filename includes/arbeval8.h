@@ -11,6 +11,7 @@
 #include <red_black_tree.h>
 #include <doubly_linked_list.h>
 #include <math.h>
+#include <memfile.h>
 
 #if defined(_WIN32) || defined(_WIN64)
 #define ARBEVAL_EXPORTS 1
