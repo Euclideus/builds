@@ -71,6 +71,7 @@ ARBEVAL_API char **GetPredefinedFunctionInfo(char *flabel);
 ARBEVAL_API char **GetEnvironmentFunctionInfo(char *flabel);
 ARBEVAL_API char **GetProgrammingCommandInfo(char *flabel);
 ARBEVAL_API arbenv *InitializeTopLevelEnvironment(int32_t defaults);
+ARBEVAL_API void SetEnvironmentSeed(int32_t seed,arbenv *ae);
 ARBEVAL_API void TerminateEnvironment(arbenv *ae);
 ARBEVAL_API void *copyArbenv(void *v);
 ARBEVAL_API void freeArbenv(void *ae);
