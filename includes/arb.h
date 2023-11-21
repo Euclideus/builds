@@ -19,6 +19,7 @@
 
 #include <bit_array.h>
 #include <stdio.h>
+#include <memfile.h>
 
 #if defined(_WIN32) || defined(_WIN64)
 #define ARB_EXPORTS 1
@@ -78,12 +79,6 @@ Zabcdefghijklmnopqrstuvwxyz"
 #define NBITS   31
 #define MAX_DIGITS 15
 #define EPSILON 1.0E-15
-
-typedef enum stream_type { memory_stream,file_stream }stream_type;
-
-typedef struct cmplx cmplx;
-
-typedef struct MEM_FILE MEM_FILE;
 
 typedef struct cmplx{
   double r;
@@ -263,7 +258,6 @@ ARB_API char*** CopyStringMatrix(char***);
 ARB_API char**** CopyStringMatrixVector(char****);
 ARB_API char** CopyStringVector(char**);
 ARB_API cmplx*** CopyMatrixVectorC(cmplx***);
-ARB_API void* CopyMemFile(void* v);
 ARB_API double* CopyVector(double*);
 ARB_API cmplx* CopyVectorC(cmplx*);
 ARB_API int32_t* CopyVectorI(int32_t*);
@@ -764,21 +758,6 @@ ARB_API double MeanAbsC(cmplx*);
 ARB_API double MeanM(double**);
 ARB_API double MeanWindow(double*,int32_t,int32_t);
 ARB_API double Median(double*);
-ARB_API MEM_FILE* MemOpen(int32_t);
-ARB_API void MemClose(MEM_FILE*);
-ARB_API MEM_FILE* MemFRead(FILE* f1);
-ARB_API void MemWrapperClose(MEM_FILE* f);
-ARB_API MEM_FILE* MemWrapperOpen(unsigned char* bytes,uint32_t size);
-ARB_API void MemFWrite(MEM_FILE* m1,FILE* f1);
-ARB_API unsigned char* MemDump(MEM_FILE* f,uint32_t startpos,uint32_t endpos);
-ARB_API unsigned char* MemGetBufHandle(MEM_FILE* f);
-ARB_API uint32_t MemGetBufPos(MEM_FILE* f);
-ARB_API uint32_t MemGetBufSize(MEM_FILE* f);
-ARB_API size_t MemRead(void*,size_t,size_t,MEM_FILE*);
-ARB_API void MemSetRelativeBufPos(MEM_FILE* f,int32_t rpos);
-ARB_API void MemSetBufPos(MEM_FILE* f,uint32_t pos);
-ARB_API MEM_FILE* MemWrapperOpen(unsigned char* bytes,uint32_t size);
-ARB_API size_t MemWrite(void*,size_t,size_t,MEM_FILE*);
 ARB_API uint32_t MergeBytesToInt(unsigned char*);
 ARB_API double Metropolis1(double (*)(double*,double*),
   double (*)(double,double*),int32_t,double*,int32_t,
@@ -892,7 +871,6 @@ ARB_API int32_t PosL(int32_t,int32_t*);
 ARB_API cmplx PowC(cmplx,cmplx);
 ARB_API cmplx PowCR(cmplx,double);
 ARB_API cmplx PowIR(double,double);
-ARB_API uint64_t PowMod(uint64_t,uint64_t,uint64_t);
 ARB_API double PowerMethod(double**,double*,int32_t);
 ARB_API cmplx PowerMethodC(cmplx**,cmplx*,int32_t);
 ARB_API double** PowM(double**,int32_t);
@@ -912,9 +890,6 @@ ARB_API void PrimeNumbersSub(double,uint64_t,uint64_t,bit_array*,uint64_t*,
   double**);
 ARB_API double PrimitiveRootPrime(double,char*);
 ARB_API void Print(double);
-ARB_API char* PrintBitArrayFloat(bit_array_float*);
-ARB_API char* PrintBitArrayFloatToDecimal(bit_array_float*, int32_t sigdigits);
-ARB_API char* PrintBitArrayFloatToHexadecimal(bit_array_float*);
 ARB_API void PrintC(cmplx);
 ARB_API void PrintF(float);
 ARB_API void PrintI(int32_t);
@@ -974,9 +949,7 @@ ARB_API char *RandomStringCharSet(int32_t,char *,int32_t *);
 ARB_API char* RandomStringExtASCII(int32_t,int32_t*);
 ARB_API double Range(double*);
 ARB_API void *ReadBitArray(void *,stream_type);
-ARB_API void *ReadBitArrayFloat(void *,stream_type);
 ARB_API double Re(cmplx);
-ARB_API void* ReadMemFile(void *,stream_type);
 ARB_API double** ReM(cmplx**);
 ARB_API double* ReV(cmplx*);
 ARB_API cmplx RealC(double);
@@ -1068,9 +1041,7 @@ ARB_API char* SaltFromHash(char*);
 ARB_API double** SavitzkyGolay(double*,double*,int32_t,int32_t,int32_t,int32_t);
 ARB_API double* SavitzkyGolayCoefficients(int32_t,int32_t,int32_t,int32_t);
 ARB_API double*** ScalarField2D(double**,double*,double*);
-ARB_API int32_t SeedFrom4Bytes(MEM_FILE*,unsigned char*,int32_t);
 ARB_API int32_t SeedFrom4String(char*,int32_t);
-ARB_API int32_t SeedFromByteArray(MEM_FILE*,int32_t,int32_t,int32_t);
 ARB_API int32_t SeedFromString(char*);
 ARB_API int32_t SeedFromStringP(char*);
 ARB_API char* SHA256(char*);
@@ -1104,8 +1075,6 @@ ARB_API void SimulatedAnnealing(double (*)(double*),double*,double**,
 ARB_API cmplx SinC(cmplx);
 ARB_API double SincFunc(double);
 ARB_API cmplx SinhC(cmplx);
-ARB_API char* SmileyHash(char**,int32_t,char slow, char *extra_chars);
-ARB_API char* SmileyHexHash(char**,int32_t,char,char* (*)(void**),char* (*)(void**));
 ARB_API void SmoothFFT(cmplx**,int32_t,int32_t);
 ARB_API void SmoothFFTV(cmplx*,int32_t,int32_t);
 ARB_API void SmoothSpline(double*,double*,int32_t);
@@ -1280,9 +1249,7 @@ ARB_API void Wigner3JSymbolsSpecial(double,double,double*,double*);
 ARB_API double Wrap(double,double);
 ARB_API void Write(char*,double);
 ARB_API void WriteBitArray(void *,void *,stream_type);
-ARB_API void WriteBitArrayFloat(void *,void *,stream_type);
 ARB_API void WriteByteArray(char*,unsigned char*,int32_t);
-ARB_API void WriteMemFile(void* val,void* f,stream_type st);
 ARB_API void WriteMV(char*,double***);
 ARB_API void WriteMatrix(char*,double**);
 ARB_API void WriteMatrixUInt32(char*,uint32_t**);
