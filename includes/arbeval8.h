@@ -76,7 +76,7 @@ ARBEVAL_API void TerminateEnvironment(arbenv *ae);
 ARBEVAL_API void *copyArbenv(void *v);
 ARBEVAL_API void freeArbenv(void *ae);
 ARBEVAL_API void writeArbenv(void *v,void *f,stream_type st);
-ARBEVAL_API char *FormatRBST(char **sin,int32_t expand,int32_t sd,char *prevnum,char *prevdenom,arbenv *ae);
+ARBEVAL_API char *FormatRBST(char **sin,int32_t expand,int32_t sd,arbenv *ae);
 ARBEVAL_API void *readTopArbenv(void *f,stream_type st);
 ARBEVAL_API char *ArbevalScript(char *script1,arbenv *ae,int32_t delete_literal_objects);
 ARBEVAL_API char *RestoreDefaultAssignments(arbenv *ae,int32_t delete_lits);
