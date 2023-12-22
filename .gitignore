@@ -1,3 +1,7 @@
 
 .vs/**/*.wsuo
 .vs/**/VSWorkspaceState.json
+/.vs/release/v17/Browse.VC.db
+/.vs/release/v17/Browse.VC.db-shm
+/.vs/release/v17/Browse.VC.db-wal
+/.vs/release/v17/Browse.VC.opendb
