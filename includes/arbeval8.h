@@ -94,7 +94,7 @@ ARBEVAL_API char *InstructionsProgramming(void);
 ARBEVAL_API char *InstructionsFourier(void);
 ARBEVAL_API char *About(void);
 ARBEVAL_API int32_t GetSignificantDigits(arbenv *ae);
-ARBEVAL_API int32_t GetCancelFlag(arbenv *ae);
+ARBEVAL_API char GetCancelFlag(arbenv *ae);
 ARBEVAL_API void SetSignificantDigits(arbenv *ae,int32_t nsig);
 ARBEVAL_API void SetCancelFlag(arbenv *ae,char val);
 ARBEVAL_API arbenv *CopyEnvironment(arbenv *source,arbenv *outer,
