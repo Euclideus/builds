@@ -1,0 +1,291 @@
+list=class:
+
+  private:
+  
+    head=node:;
+    tail=node:;
+    size=0;
+
+  size()=size,
+  head()=head,
+  tail()=tail,
+
+  insertHead(value)=:
+    if: size==0,
+      head._=node:value;
+      tail=head,
+    else,
+      head._.prev=node:value;
+      head._.prev.next=head._,
+      head._=head._.prev;
+    size=size+1,
+    return=this
+  ;
+
+  insertTail(value)=:
+    if: size==0,
+      head._=node:value;
+      tail=head,
+    else,
+      tail._.next=node:value;
+      tail._.next.prev=tail._,
+      tail._=tail._.next;
+    size=size+1,
+    return=this
+  ;
+
+  deleteHead()=:
+    if: size>1,
+      tmp=head,
+      head._=tmp._.next,
+      delete(tmp._),
+      size=size-1,
+    elseif, size==1,
+      delete(head._),
+      size=size-1
+    ;
+    return=this
+  ;
+
+  deleteTail()=:
+    if: size>1,
+      tmp=tail,
+      tail._=tmp._.prev,
+      delete(tmp._),
+      size=size-1,
+    elseif, size==1,
+      delete(head._),
+      size=size-1
+    ;
+    return=this
+  ;
+  
+  print()=:
+    return=string:head.label()," ->  ";
+    sentinel=head,
+    while: ~sentinel._.isempty(),
+      type=sentinel._.value.type(),
+      if: type.compare("algebraic")==0,
+          return.append(sentinel._.value,"  "),
+        elseif, type.compare("string")==0,
+          return.append(sentinel._.value.print(),"  "),
+        elseif, type.compare("array")==0,
+          return.append("array:",sentinel._.value.size(),";  "),
+        elseif, type.compare("numeric")==0,
+          return.append(sentinel._.value,"  "),
+        elseif, type.compare("matrix")==0,
+          dims=sentinel._.value.dims(),
+          return.append("matrix:",dims.0),
+          for:j=1,j<dims.size(),j=j+1,
+            return.append(",",dims.j)
+          ;
+          return.append(";  "),
+        else, return.append(type,":;  ")
+      ;
+      sentinel._=sentinel._.next
+    ;
+    return=return.append("<- ",tail.label())
+  ;
+;
+
+cross_prod(v1,v2)=:
+  if:v1.size()==v2.size() & v1.rank()==v2.rank(),
+    if:v1.size()==2,
+      return=[0,0,v1.0.mul(v2.1).sub(v1.1.mul(v2.0))],
+    elseif,v1.size()==3,
+      return=[v1.1.mul(v2.2).sub(v1.2.mul(v2.1)),v1.2.mul(v2.0).sub(v1.0.mul(v2.2)),v1.0.mul(v2.1).sub(v1.1.mul(v2.0))]
+    ;
+  ;
+;
+
+dot_prod(v1,v2)=:
+  if:v1.size()==v2.size() & v1.rank()==v2.rank(),
+    v1.transpose().conj(),
+    return=v1.mul(v2).0*1
+  ;
+;
+
+random_vector(n,x1,x2)=:
+  return=matrix:n;
+  for:j=0,j<n,j=j+1,
+    return.j=rand(x1,x2)
+  ;
+;
+
+random_matrix(nr,nc,x1,x2)=:
+  return=matrix:nr,nc;
+  for:j=0,j<nr,j=j+1,
+    for:k=0,k<nc,k=k+1,
+      return.j.k=rand(x1,x2)
+    ;
+  ;
+;
+
+fibonacci(n)=:
+  if:n>=0 & n<2,return=1,
+  elseif, n>=2,
+    j1=1,
+    return=1,
+    for:j=2,j<n,j=j+1,
+      j2=return,
+      return=j1+return,
+      j1=j2
+    ;
+  ;
+;
+
+identity_matrix(n)=:
+  return=matrix:n,n;
+  for:j=0,j<n,j=j+1,
+    return.j.j=1
+  ;
+;
+
+singleton1=class:
+  
+  static:
+  
+    setVal(x)=:
+      val=x
+    ;
+  
+    getVal()=:
+      return=val
+    ;
+    
+    private:    
+      val=1
+    ;
+  ;
+  
+  private:
+  
+    singleton1()=:
+      return=this
+    ;
+  ;
+;
+
+singleton2=class:
+
+  static:
+    private: 
+      n=0;
+  ;
+  
+  setVal(x)=:
+    val=x
+  ;
+  
+  getVal()=:
+    return=val
+  ;
+  
+  private:
+  
+    val=1,
+    
+    singleton2()=:
+      if: ~n,
+        n=1,
+        return=this
+      ;
+    ;
+    
+    _singleton2()=:
+      n=0
+    ;
+  ;
+;
+
+implication(a,b)=~a|b,
+equivalence(a,b)=~xor(a,b),
+xor(a,b)=(a|b)&~(a&b),
+celsius(d_f)=5*(d_f-32)/9,
+fahrenheit(d_c)=d_c*9/5+32,
+x_s(r,theta,phi)=r*sin(theta)*cos(phi),
+x_c(rho,phi)=rho*cos(phi),
+y_s(r,theta,phi)=r*sin(theta)*sin(phi),
+y_c(rho,phi)=rho*sin(phi),
+z_s(r,theta)=r*cos(theta),
+rho_r(x,y)=sqrt(x^2+y^2),
+rho_s(r,theta)=r*sin(theta),
+phi_r(x,y)=arctan2(y,x),
+theta_r(x,y,z)=arctan2(hypot(x,y),z),
+theta_c(rho,z)=hypot(rho,z),
+r_r(x,y,z)=hypot(z,hypot(x,y)),
+r_c(rho,z)=hypot(rho,z),
+spherical_harmonic(theta,phi,l,m)=(-1)^m*sqrt((2*l+1)/(4*pi)*(l-m)!/(l+m)!)*exp(i*m*phi)*legendre(cos(theta),l,m),
+
+pi=3.14159265358979,
+e=2.7182818284590,
+gamma=0.57721566490,
+root2=1.4142135623731,
+root3=1.7320508075688773,
+root5=2.23606797749979,
+ln2=0.69314718055994531,
+inch=0.0254,
+foot=0.304801,
+light_year=9.460730473E15,
+parsec=3.085677581E16,
+yard=0.914401,
+fathom=1.8288,
+slug=14.593902937,
+mile=1609.344,
+nautical_mile=1852,
+league=4828.032,
+astronomical_unit=1.495978707E11,
+Planck_length=1.61605E-35,
+Bohr_radius=5.29177249E-11,
+Dalton=1.660538921E-27,
+pound=0.45359237,
+ounce=0.028349523,
+stone=6.35029318,
+carat=0.0002,
+grain=0.000064799,
+Planck_mass=2.17651E-8,
+electron_mass=9.1093897E-31,
+bar=1.0E5,
+psi=6894.757293178,
+Torr=133.322368421,
+atm=101325,
+eV=1.602176565E-19,
+erg=1.0E-7,
+kWh=3600000,
+calorie=4.1868,
+BTU=1055.05585262,
+ton_TNT=4.184E9,
+Hartree=4.3597482E-18,
+Rydberg=2.1798741E-18,
+acre=4046.86,
+horse_power=745.699871582,
+BTU_per_hour=2544.433577643,
+dyne=1.0E-5,
+pound_force=4.448221615,
+pint=568.26125E-6,
+gallon=4.54609E-3,
+quart=1.1365225E-3,
+teaspoon=4.9289216E-6,
+tablespoon=14.8E-6,
+ounce_force=0.278013851,
+pond=0.00980665,
+Planck_time=5.39056E-44,
+minute=60,
+hour=3600,
+day=86164.09,
+liter=1.0E-3,
+Planck_const=6.62606957E-34,
+electron_charge=1.602176565E-19,
+Coulomb_const=8.9875517873681764E9,
+speed_of_light=2.99792458E8,
+fine_struct_const=7.29735257E-3,
+mph=0.44704,
+kmph=0.277777778,
+Avogadro=6.02214179E23,
+Bolzmann_const=1.3806504E-23,
+gravitational_G=6.67428E-11,
+ideal_gas_const=8.314472,
+mu_0=1.2566370614E-6,
+epsilon_0=8.854187817E-12,
+fl_oz_us=0.0295735*liter,
+fl_oz_uk=0.0284131*liter
