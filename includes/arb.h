@@ -204,6 +204,7 @@ ARB_API void CenterDomain(double*,double);
 ARB_API void CenterDomainC(cmplx*,double);
 ARB_API double CenterDomainFFT(double*);
 ARB_API double CenterDomainFFTC(cmplx*);
+ARB_API cmplx *CenteredFFTDomainC(double,int32_t);
 ARB_API void ChangeExtension(char**,char*);
 ARB_API char* CharString(char);
 ARB_API char* CharToHex(char);
