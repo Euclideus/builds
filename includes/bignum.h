@@ -106,6 +106,8 @@ BIGNUM_API bit_array *HigherBits(bit_array *ba,uint64_t nbits);
 BIGNUM_API uint64_t KaratsubaMultiply(uint64_t x,uint64_t y);
 BIGNUM_API uint64_t KaratsubaGetLength(uint64_t value);
 BIGNUM_API bit_array *BitArrayFactorial(bit_array *ba, char * cancel);
+BIGNUM_API bit_array *BitArrayFactorialBinarySplitting(bit_array *ba,char *cancel);
+BIGNUM_API void FactorialPartialProductSub(bit_array *a,bit_array *b,bit_array **p,char *cancel);
 BIGNUM_API bit_array *ModBitArrays(bit_array *ba1,bit_array *ba2, char * cancel);
 BIGNUM_API bit_array *ExponentiateBitArrays(bit_array *ba1,bit_array *ba2, char * cancel);
 BIGNUM_API bit_array *InitializeBitArrayFromByteArray(unsigned char *bya,uint64_t nbytes);
@@ -124,6 +126,9 @@ BIGNUM_API bit_array *InitializeBitArrayFromUInt64(uint64_t val);
 BIGNUM_API uint64_t PowMod(uint64_t,uint64_t,uint64_t);
 BIGNUM_API void *ReadBitArrayFloat(void *,stream_type);
 BIGNUM_API void WriteBitArrayFloat(void *,void *,stream_type);
+BIGNUM_API bit_array_float *EulersNumber(uint64_t digits,char *cancel);
+BIGNUM_API void EulersNumberPartialSum(uint64_t n,bit_array **p,bit_array **q,char *cancel);
+BIGNUM_API void EPartialSumSub(bit_array *a,bit_array *b,bit_array *baone,bit_array **p,bit_array **q,char *cancel);
 
 
 #endif
