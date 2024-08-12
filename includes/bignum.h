@@ -97,6 +97,7 @@ BIGNUM_API bit_array_float *SubtractBitArrayFloats(bit_array_float *baf1,bit_arr
 BIGNUM_API bit_array_float *MultiplyBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2, char * cancel);
 BIGNUM_API void AddLeadingZeroBits(bit_array *ba,uint64_t nzeros);
 BIGNUM_API void AddTrailingZeroBits(bit_array *ba,uint64_t nzeros);
+BIGNUM_API void RemoveTrailingZeroBits(bit_array *ba);
 BIGNUM_API uint64_t CountLeadingZeroBits(uint64_t x);
 BIGNUM_API uint64_t GetLeadingZeroBits(bit_array *ba);
 BIGNUM_API bit_array_float *DivideBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2,uint64_t precision, char * cancel);
