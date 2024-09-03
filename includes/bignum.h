@@ -83,11 +83,13 @@ BIGNUM_API void *CopyBitArrayFloat(void *valba);
 BIGNUM_API char TestEqualBitArrays(bit_array *ba1,bit_array *ba2);
 BIGNUM_API bit_array *MultiplyBitArrays(bit_array *x,bit_array *y, char * cancel);
 BIGNUM_API bit_array *InvertBitArray(bit_array *ba,uint64_t precision,uint64_t *kshift, char * cancel);
+BIGNUM_API bit_array *InvertSquareRootBitArray(bit_array *ba1,uint64_t precision,uint64_t *kshift,char *cancel);
 BIGNUM_API uint64_t TrimLowerZeroBits(bit_array *ba);
 BIGNUM_API bit_array *ConcatenateBitArrays(bit_array *ba1,bit_array *ba2);
 BIGNUM_API void FreeBitArrayFloat(void *bafv);
 BIGNUM_API bit_array_float *InitializeBitArrayFloatFromBitArrays(bit_array *intg,bit_array *dec,char sgn);
 BIGNUM_API bit_array_float *DivideBitArrays(bit_array *ba1,bit_array *ba2,uint64_t precision, char * cancel);
+BIGNUM_API bit_array_float *SquareRootBitArray(bit_array *ba2,uint64_t precision,char *cancel);
 BIGNUM_API bit_array *FloorDivideBitArrays(bit_array *ba1,bit_array *ba2, char * cancel);
 BIGNUM_API bit_array *LowerBits(bit_array *ba,uint64_t nbits);
 BIGNUM_API bit_array_float *AddBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2);
@@ -95,14 +97,18 @@ BIGNUM_API bit_array_float *SubtractBitArrayFloats(bit_array_float *baf1,bit_arr
 BIGNUM_API bit_array_float *MultiplyBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2, char * cancel);
 BIGNUM_API void AddLeadingZeroBits(bit_array *ba,uint64_t nzeros);
 BIGNUM_API void AddTrailingZeroBits(bit_array *ba,uint64_t nzeros);
+BIGNUM_API void RemoveTrailingZeroBits(bit_array *ba);
 BIGNUM_API uint64_t CountLeadingZeroBits(uint64_t x);
 BIGNUM_API uint64_t GetLeadingZeroBits(bit_array *ba);
 BIGNUM_API bit_array_float *DivideBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2,uint64_t precision, char * cancel);
+BIGNUM_API bit_array_float *SquareRootBitArrayFloat(bit_array_float *baf1,uint64_t precision,char *cancel);
 BIGNUM_API bit_array_float *ExponentiateBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2, uint64_t precision, char * cancel);
 BIGNUM_API bit_array *HigherBits(bit_array *ba,uint64_t nbits);
 BIGNUM_API uint64_t KaratsubaMultiply(uint64_t x,uint64_t y);
 BIGNUM_API uint64_t KaratsubaGetLength(uint64_t value);
 BIGNUM_API bit_array *BitArrayFactorial(bit_array *ba, char * cancel);
+BIGNUM_API bit_array *BitArrayFactorialBinarySplitting(bit_array *ba,char *cancel);
+BIGNUM_API void FactorialPartialProductSub(bit_array *a,bit_array *b,bit_array **p,char *cancel);
 BIGNUM_API bit_array *ModBitArrays(bit_array *ba1,bit_array *ba2, char * cancel);
 BIGNUM_API bit_array *ExponentiateBitArrays(bit_array *ba1,bit_array *ba2, char * cancel);
 BIGNUM_API bit_array *InitializeBitArrayFromByteArray(unsigned char *bya,uint64_t nbytes);
@@ -121,6 +127,9 @@ BIGNUM_API bit_array *InitializeBitArrayFromUInt64(uint64_t val);
 BIGNUM_API uint64_t PowMod(uint64_t,uint64_t,uint64_t);
 BIGNUM_API void *ReadBitArrayFloat(void *,stream_type);
 BIGNUM_API void WriteBitArrayFloat(void *,void *,stream_type);
+BIGNUM_API bit_array_float *EulersNumber(uint64_t digits,char *cancel);
+BIGNUM_API void EulersNumberPartialSum(uint64_t n,bit_array **p,bit_array **q,char *cancel);
+BIGNUM_API void EPartialSumSub(bit_array *a,bit_array *b,bit_array *baone,bit_array **p,bit_array **q,char *cancel);
 
 
 #endif

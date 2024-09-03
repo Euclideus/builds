@@ -916,6 +916,8 @@ ARB_API double Product(double (*)(double),int32_t,int32_t,int32_t);
 ARB_API cmplx ProductC(cmplx(*)(double),int32_t,int32_t,int32_t);
 ARB_API double ProductP(double (*)(double*),double*,int32_t,int32_t,int32_t);
 ARB_API double** ProximalInterpolationM(double**,int32_t,int32_t);
+ARB_API double **ProximalInterpolationMH(double **,int32_t);
+ARB_API double **ProximalInterpolationMV(double **,int32_t);
 ARB_API cmplx* QRAlgorithm(double**);
 ARB_API cmplx*** QRAlgorithm2(double**);
 ARB_API void QRBalance(double**);
