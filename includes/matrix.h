@@ -14,6 +14,7 @@ matrix *initializeMatrix(int32_t *dims,int32_t rank);
 matrix *matrixFromVector(cmplx *v);
 matrix *matrixFromRealVector(double *v);
 matrix *matrixFromMatrix(cmplx **v);
+matrix *matrixFromRealMatrix(double **v);
 void freeMatrix(void *t1);
 matrix *getMatrixElement(matrix *t,int32_t *indxs);
 void *getMatrixElement1(matrix *t,int32_t indx);
