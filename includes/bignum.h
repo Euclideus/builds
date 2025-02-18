@@ -85,6 +85,7 @@ BIGNUM_API bit_array *MultiplyBitArrays(bit_array *x,bit_array *y, char * cancel
 BIGNUM_API bit_array *InvertBitArray(bit_array *ba,uint64_t precision,uint64_t *kshift, char * cancel);
 BIGNUM_API bit_array *InvertSquareRootBitArray(bit_array *ba1,uint64_t precision,uint64_t *kshift,char *cancel);
 BIGNUM_API uint64_t TrimLowerZeroBits(bit_array *ba);
+BIGNUM_API bit_array *CropBitArray(bit_array *ba,uint64_t i1,uint64_t i2);
 BIGNUM_API bit_array *ConcatenateBitArrays(bit_array *ba1,bit_array *ba2);
 BIGNUM_API void FreeBitArrayFloat(void *bafv);
 BIGNUM_API bit_array_float *InitializeBitArrayFloatFromBitArrays(bit_array *intg,bit_array *dec,char sgn);
@@ -95,6 +96,9 @@ BIGNUM_API bit_array *LowerBits(bit_array *ba,uint64_t nbits);
 BIGNUM_API bit_array_float *AddBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2);
 BIGNUM_API bit_array_float *SubtractBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2);
 BIGNUM_API bit_array_float *MultiplyBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2, char * cancel);
+BIGNUM_API bit_array_float *ShiftLeftBitArrayFloat(bit_array_float *baf1,uint64_t n);
+BIGNUM_API bit_array_float *ShiftRightBitArrayFloat(bit_array_float *baf1,uint64_t n);
+BIGNUM_API bit_array *ReverseBitArray(bit_array *ba);
 BIGNUM_API void AddLeadingZeroBits(bit_array *ba,uint64_t nzeros);
 BIGNUM_API void AddTrailingZeroBits(bit_array *ba,uint64_t nzeros);
 BIGNUM_API void RemoveTrailingZeroBits(bit_array *ba);
