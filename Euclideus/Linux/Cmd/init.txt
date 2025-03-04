@@ -121,6 +121,19 @@ random_matrix(nr,nc,x1,x2)=:
   ;
 ;
 
+bracketed_bignum(bn,bracket_width)=:
+  return="0b1",
+  for:j=0,j<bracket_width,j=j+1,
+    return.append("0")
+  ;
+  return.append("."),
+  for:j=0,j<bracket_width,j=j+1,
+    return.append("0")
+  ;
+  return.append("1"),
+  return=return.eval().or(bn)
+;
+
 fibonacci(n)=:
   if:n>=0 & n<2,return=1,
   elseif, n>=2,
