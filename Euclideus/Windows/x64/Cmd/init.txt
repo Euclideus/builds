@@ -123,14 +123,9 @@ random_matrix(nr,nc,x1,x2)=:
 
 bracketed_bignum(bn,bracket_width)=:
   return="0b1",
-  for:j=0,j<bracket_width,j=j+1,
-    return.append("0")
-  ;
-  return.append("."),
-  for:j=0,j<bracket_width,j=j+1,
-    return.append("0")
-  ;
-  return.append("1"),
+  return.enlarge(2*bracket_width+5),
+  return.(2*bracket_width+4)=1,
+  return.(bracket_width+3)=".",
   return=return.eval().or(bn)
 ;
 
