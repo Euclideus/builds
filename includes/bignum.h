@@ -39,7 +39,7 @@
 typedef struct bit_array_float{
   bit_array *int_part;
   bit_array *dec_part;
-  char sgn;
+  int8_t sgn;
 }bit_array_float;
 
 
@@ -81,6 +81,7 @@ BIGNUM_API void CleanBitArray(bit_array *ba);
 BIGNUM_API bit_array *CopyBitArray(bit_array *x);
 BIGNUM_API void *CopyBitArrayFloat(void *valba);
 BIGNUM_API char TestEqualBitArrays(bit_array *ba1,bit_array *ba2);
+BIGNUM_API char CompareBitArrays(bit_array *ba1,bit_array *ba2);
 BIGNUM_API bit_array *MultiplyBitArrays(bit_array *x,bit_array *y, char * cancel);
 BIGNUM_API bit_array *InvertBitArray(bit_array *ba,uint64_t precision,uint64_t *kshift, char * cancel);
 BIGNUM_API bit_array *InvertSquareRootBitArray(bit_array *ba1,uint64_t precision,uint64_t *kshift,char *cancel);
@@ -105,6 +106,7 @@ BIGNUM_API void RemoveTrailingZeroBits(bit_array *ba);
 BIGNUM_API uint64_t CountLeadingZeroBits(uint64_t x);
 BIGNUM_API uint64_t GetLeadingZeroBits(bit_array *ba);
 BIGNUM_API bit_array_float *DivideBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2,uint64_t precision, char * cancel);
+BIGNUM_API char CompareBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2);
 BIGNUM_API bit_array_float *SquareRootBitArrayFloat(bit_array_float *baf1,uint64_t precision,char *cancel);
 BIGNUM_API bit_array_float *ExponentiateBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2, uint64_t precision, char * cancel);
 BIGNUM_API bit_array *HigherBits(bit_array *ba,uint64_t nbits);
