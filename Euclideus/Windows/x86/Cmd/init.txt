@@ -206,6 +206,8 @@ singleton2=class:
   ;
 ;
 
+streval(x)="1*".append(x).eval(),
+
 implication(a,b)=~a|b,
 equivalence(a,b)=~xor(a,b),
 xor(a,b)=(a|b)&~(a&b),
