@@ -129,6 +129,38 @@ bracketed_bignum(bn,bracket_width)=:
   return=return.eval().or(bn)
 ;
 
+levenshtein(s,t)=:
+  
+  m=s.size(),
+  n=t.size(),
+  
+  v0=matrix:n+1;,
+  v1=matrix:n+1;,
+  
+  for:j=0,j<=n,j=j+1,
+    v0.j=j
+  ;
+  
+  for:k=0,k<m,k=k+1,
+    v1.0=k+1,
+    for:j=0,j<n,j=j+1,
+      deletionCost=v0.(j+1)+1,
+      insertionCost=v1.j+1,
+      substitutionCost=0,
+      if:s.k.compare(t.j)==0,
+        substitutionCost=v0.j,
+      else,
+        substitutionCost=v0.j+1
+      ;
+      v1.(j+1)=min(deletionCost,insertionCost,substitutionCost)
+    ;
+    v_tmp=v0,
+    v0=v1,
+    v1=v_tmp,
+    return=v0.n
+  ;
+;
+
 fibonacci(n)=:
   if:n>=0 & n<2,return=1,
   elseif, n>=2,
