@@ -24,6 +24,8 @@ matrix *initializeMatrix0(cmplx cval);
 cmplx *getMatrixValue(matrix *t,int32_t *indxs);
 int32_t setMatrixValue(matrix *t,int32_t *indxs,cmplx cval);
 void *copyMatrix(void *t1);
+matrix *realPartMatrix(matrix *tt);
+matrix *imaginaryPartMatrix(matrix *tt);
 void readMatrixFromStream(matrix **t,void *fs,stream_type st);
 void *readMatrix(void *fs,stream_type st);
 void writeMatrix(void *t,void *fs,stream_type st);

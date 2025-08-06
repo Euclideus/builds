@@ -126,7 +126,7 @@ bracketed_bignum(bn,bracket_width)=:
   return.enlarge(2*bracket_width+5),
   return.(2*bracket_width+4)=1,
   return.(bracket_width+3)=".",
-  return=return.eval().or(bn)
+  return=return.bignum().or(bn)
 ;
 
 levenshtein(s,t)=:
@@ -237,8 +237,6 @@ singleton2=class:
     ;
   ;
 ;
-
-streval(x)="1*".append(x).eval(),
 
 implication(a,b)=~a|b,
 equivalence(a,b)=~xor(a,b),
