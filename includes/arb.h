@@ -1242,8 +1242,8 @@ ARB_API double* Vector6(double,double,double,double,double,double);
 ARB_API int32_t* Vector7L(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t,int32_t);
 ARB_API double* VonNeumannRejection(double (*)(double),double,double,double,
   int32_t,int32_t*);
-ARB_API double 		      WeightedMean(double*,double*);
-ARB_API double 		      WeightedMeanWindow(double*,double*,int32_t,int32_t);
+ARB_API double WeightedMean(double*,double*);
+ARB_API double WeightedMeanWindow(double*,double*,int32_t,int32_t);
 ARB_API double*** WignerDistribution(cmplx**,int32_t);
 ARB_API double Wigner3J(double,double,double,double,double,double);
 ARB_API double** Wigner3JSymbols(double,double,double,double);
