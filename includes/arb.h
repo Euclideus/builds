@@ -508,7 +508,6 @@ ARB_API cmplx **FormatZeroPadFFT(cmplx **,int32_t);
 ARB_API void FourierFilter(double **,double,double,double);
 ARB_API void FourierFilterC(cmplx **,double,double,double);
 ARB_API double FractionalPart(double);
-//ARB_API void FrancisQRIterations(cmplx **,cmplx *,int32_t *,double, char *cancel);
 ARB_API void FrancisQRIterationsQAccumulation(cmplx **,cmplx **,cmplx *,int32_t *,double,char *);
 ARB_API double FredholmInterpolation1(double **,double,double (*)(double),
   double (*)(double,double));
@@ -1324,7 +1323,6 @@ ARB_API double Wigner3JSymbolSpecial1(double,double,double);
 ARB_API double Wigner3JSymbolSpecial2(double,double,double);
 ARB_API void Wigner3JSymbolsSpecial(double,double,double *,double *);
 ARB_API void WilkinsonDoubleShiftQAccumulation(cmplx **,cmplx **);
-//ARB_API void WilkinsonDoubleShift(cmplx **);
 ARB_API double Wrap(double,double);
 ARB_API void Write(char *,double);
 ARB_API void WriteBitArray(void *,void *,stream_type);
