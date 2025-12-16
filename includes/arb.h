@@ -1073,7 +1073,7 @@ ARB_API double **RK1(double (*)(double,double),double,double,double,int32_t);
 ARB_API double **RK2(double (*)(double,double,double),double,double,double,
   double,int32_t);
 ARB_API double Round(double);
-ARB_API double RoundDigits(double,int);
+ARB_API double RoundDigits(double,int32_t);
 ARB_API char *RoundDoubleString(char **,int32_t);
 ARB_API void RoundDoubleStringWithSpacePadding(char *,int32_t);
 ARB_API char *RoundIntegerString(char *,int32_t,char *);
