@@ -79,6 +79,7 @@ Zabcdefghijklmnopqrstuvwxyz"
 #define NBITS   31
 #define MAX_DIGITS 15
 #define EPSILON 1.0E-15
+#define CLUSTERING_SCALER 16.0
 
 typedef struct cmplx{
   double r;
@@ -220,14 +221,15 @@ ARB_API void ChaseTheBulgeQAccumulation(cmplx **,cmplx **);
 ARB_API double ChebychevExpansion(double,double,double *,int32_t,double);
 ARB_API double ChiSquare(double **,double (*)(double,double *),double *);
 ARB_API cmplx CI(void);
-ARB_API int32_t **ClusterEigenvalueRanges(double **);
-ARB_API int32_t **ClusteredSchurMatrix(cmplx **,cmplx **,char *);
+ARB_API int32_t **ClusterEigenvalueRanges(double **,double);
+ARB_API int32_t **ClusteredSchurMatrix(cmplx **,cmplx **, char *);
 ARB_API double *Col(double **,int32_t);
 ARB_API double Comb(int32_t,int32_t);
 ARB_API double CombSpikeFunc(double,double);
 ARB_API double **CombineMatrices(double **,double **);
 ARB_API int32_t **CombineMatricesL(int32_t **,int32_t **);
 ARB_API int32_t CompareFloats(double,double);
+ARB_API int32_t CompareFloatsTol(double,double,double);
 ARB_API double **ComplementaryM(double **);
 ARB_API cmplx ComplexP(double,double);
 ARB_API cmplx ComplexR(double,double);
@@ -737,8 +739,8 @@ ARB_API void LUSolve(double **,double **);
 ARB_API void LUSolveC(cmplx **,cmplx **);
 ARB_API double **Matrix(int32_t,int32_t);
 ARB_API cmplx **MatrixC(int32_t,int32_t);
-ARB_API cmplx *Matrix2By2Eigenvalues(cmplx,cmplx,cmplx,cmplx);
-ARB_API cmplx **Matrix2By2Eigenvectors(cmplx,cmplx,cmplx,cmplx);
+ARB_API cmplx *Matrix2By2Eigenvalues(cmplx,cmplx,cmplx,cmplx, double);
+ARB_API cmplx **Matrix2By2Eigenvectors(cmplx,cmplx,cmplx,cmplx,double);
 ARB_API void MatrixCopy(double **,double **);
 ARB_API void MatrixCopyC(cmplx **,cmplx **);
 ARB_API void MatrixCopyF(float **,float **);
@@ -870,7 +872,7 @@ ARB_API void NiederreiterCalcV2(int32_t,int32_t,int32_t *,int32_t **,int32_t **,
   int32_t *,int32_t *,int32_t *);
 ARB_API void NiederreiterPlyMul2(int32_t **,int32_t **,int32_t,int32_t *,int32_t,int32_t *,
   int32_t *,int32_t *pc);
-ARB_API void NiederreiterSetfld2(int32_t **add,int32_t **mul,int32_t **);
+ARB_API void NiederreiterSetfld2(int32_t **,int32_t **,int32_t **);
 ARB_API void Niederreiter1(int32_t,int32_t *,double *);
 ARB_API int32_t NOcc(double,double *);
 ARB_API int32_t NOccL(int32_t,int32_t *);
@@ -888,7 +890,8 @@ ARB_API cmplx NormalizeWindowVC(cmplx *,int32_t,int32_t);
 ARB_API double NormalizeVMax(double *);
 ARB_API double NormalizeVMaxC(cmplx *);
 ARB_API double NormC(cmplx *);
-ARB_API double NormMC(cmplx **arb);
+ARB_API double Norm1MC(cmplx **);
+ARB_API double Norm2MC(cmplx **);
 ARB_API double NormWindow(double *,int32_t,int32_t);
 ARB_API int32_t NRows(char *);
 ARB_API int32_t NullSpaceUpperTriangular(cmplx **,cmplx,cmplx ***);
@@ -898,7 +901,7 @@ ARB_API int32_t OrderOfMagnitude10(double);
 ARB_API int32_t OrderOfMagnitude1000(double);
 ARB_API double **OuterP(double *,double *);
 ARB_API cmplx **OuterPC(cmplx *,cmplx *);
-ARB_API void OuterPIPC(cmplx *v1,cmplx *v2,cmplx **mat);
+ARB_API void OuterPIPC(cmplx *,cmplx *,cmplx **);
 ARB_API double *OverlapInterval(double,double,double,double);
 ARB_API double ParabolicExtremum(double,double,double,double,double,double);
 ARB_API double ParabolicInterpolation1(double *,double *,double);
@@ -1073,7 +1076,7 @@ ARB_API double **RK1(double (*)(double,double),double,double,double,int32_t);
 ARB_API double **RK2(double (*)(double,double,double),double,double,double,
   double,int32_t);
 ARB_API double Round(double);
-ARB_API double RoundDigits(double,int);
+ARB_API double RoundDigits(double,int32_t);
 ARB_API char *RoundDoubleString(char **,int32_t);
 ARB_API void RoundDoubleStringWithSpacePadding(char *,int32_t);
 ARB_API char *RoundIntegerString(char *,int32_t,char *);
@@ -1159,7 +1162,7 @@ ARB_API double SmoothSquareFunc2D(double,double,double,double,double,double,
   double,double);
 ARB_API double SmoothStepFunc(double);
 ARB_API void Sort(double *);
-ARB_API double **SortEigenvalueIndices(cmplx *);
+ARB_API double **SortEigenvalueIndices(cmplx *, double tol);
 ARB_API void SortL(int32_t *);
 ARB_API void SortMatrix(double **,int32_t,int32_t,int32_t);
 ARB_API void SortMatrixL(int32_t **,int32_t,int32_t,int32_t);
@@ -1325,7 +1328,7 @@ ARB_API double **Wigner3JSymbols(double,double,double,double);
 ARB_API double Wigner3JSymbolSpecial1(double,double,double);
 ARB_API double Wigner3JSymbolSpecial2(double,double,double);
 ARB_API void Wigner3JSymbolsSpecial(double,double,double *,double *);
-ARB_API void WilkinsonDoubleShiftQAccumulation(cmplx **,cmplx **);
+ARB_API void WilkinsonDoubleShiftQAccumulation(cmplx **,cmplx **, double);
 ARB_API double Wrap(double,double);
 ARB_API void Write(char *,double);
 ARB_API void WriteBitArray(void *,void *,stream_type);
