@@ -2,9 +2,9 @@
 Type=Application
 Name=Euclideus
 # Use the FULL absolute path to your AppImage
-Exec=/home/your-username/Applications/Euclideus-x86_64.AppImage
+Exec=sh -c "~/.local/bin/Euclideus-x86_64.AppImage"
 # Use the FULL absolute path to your icon file
-Icon=/home/your-username/.local/share/icons/euclideus_icon.png
+Icon=euclideus_icon.png
 Terminal=false
 Categories=Utility;
 # Helps Ubuntu group the icon with the running window
