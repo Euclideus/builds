@@ -927,6 +927,7 @@ ARB_API double PolyFitFunction(double,double *);
 ARB_API void PolynomialFit(double *,double *,double *,double *,int32_t,int32_t);
 ARB_API double **PolynomialFit2(double *,double *,double *,int32_t);
 ARB_API void PolynomialFitPhase(cmplx **,double *,int32_t,int32_t);
+ARB_API void PolynomialFitPhaseUnweighted(cmplx**, double*, int32_t, int32_t);
 ARB_API void PopulateFFTVectors(cmplx(*)(cmplx,void *),cmplx,void *,double,cmplx *,cmplx *);
 ARB_API double PolynomialFitFunc(double,double *);
 ARB_API int32_t Pos(double,double *);
