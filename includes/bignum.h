@@ -116,6 +116,7 @@ BIGNUM_API bit_array *BitArrayFactorial(bit_array *ba, volatile char *cancel);
 BIGNUM_API bit_array *BitArrayFactorialBinarySplitting(bit_array *ba,volatile char *cancel);
 BIGNUM_API void FactorialPartialProductSub(bit_array *a,bit_array *b,bit_array **p,volatile char *cancel);
 BIGNUM_API bit_array *ModBitArrays(bit_array *ba1,bit_array *ba2, volatile char *cancel);
+BIGNUM_API bit_array *GCDBitArrays(bit_array *ba1,bit_array *ba2, volatile char *cancel);
 BIGNUM_API bit_array *ExponentiateBitArrays(bit_array *ba1,bit_array *ba2, volatile char *cancel);
 BIGNUM_API bit_array *InitializeBitArrayFromByteArray(unsigned char *bya,uint64_t nbytes);
 BIGNUM_API char *PrintBitArray(bit_array *);
