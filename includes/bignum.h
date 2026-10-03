@@ -17,7 +17,7 @@
 #include   <dirent_win.h>
 #endif
 
-#include <inttypes.h>
+#include <chacha20.h>
 #include <stdint.h>
 #include <bit_array.h>
 #include <memfile.h>
@@ -114,6 +114,17 @@ BIGNUM_API uint64_t KaratsubaMultiply(uint64_t x,uint64_t y);
 BIGNUM_API uint64_t KaratsubaGetLength(uint64_t value);
 BIGNUM_API bit_array *BitArrayFactorial(bit_array *ba, volatile char *cancel);
 BIGNUM_API bit_array *BitArrayFactorialBinarySplitting(bit_array *ba,volatile char *cancel);
+BIGNUM_API bit_array *RandomBitArray(bit_array *n1,bit_array *n2,cha_cha_20_state *seed);
+BIGNUM_API void RandomizeBitArray(bit_array *ba, cha_cha_20_state *ccstate);
+BIGNUM_API char MillerRabinPrimeTest(bit_array *n,int32_t k,cha_cha_20_state *seed,volatile char *cancel);
+BIGNUM_API void GetPrimePair(bit_array **prime1,bit_array **prime2,uint64_t nbits,int32_t mr_its,cha_cha_20_state *seed,char *abort);
+BIGNUM_API bit_array *ModInverseBinaryExtendedEuclidean(bit_array *a, bit_array * m);
+BIGNUM_API bit_array *MontgomeryReduce(bit_array *t,bit_array *n, bit_array *nprime,volatile char *cancel);
+BIGNUM_API bit_array *MontgomeryMultiply(bit_array *a,bit_array *b, bit_array *n,bit_array *nprime,volatile char *cancel);
+BIGNUM_API bit_array *MontgomeryNPrime(bit_array *n,volatile char *cancel);
+BIGNUM_API bit_array *MontgomeryRSquared(bit_array *mod,volatile char *cancel);
+BIGNUM_API bit_array *MontgomeryPowMod(bit_array* base,bit_array* exponent,bit_array* mod,bit_array *nprime,
+  bit_array *r2mod, volatile char *cancel);
 BIGNUM_API void FactorialPartialProductSub(bit_array *a,bit_array *b,bit_array **p,volatile char *cancel);
 BIGNUM_API bit_array *ModBitArrays(bit_array *ba1,bit_array *ba2, volatile char *cancel);
 BIGNUM_API bit_array_float *ModBitArrayFloats(bit_array_float *ba1,bit_array_float *ba2,volatile char *cancel);
@@ -134,6 +145,7 @@ BIGNUM_API char* PrintBitArrayFloatToHexadecimal(bit_array_float*);
 BIGNUM_API bit_array_float *InitializeBitArrayFloatFromDouble(double val);
 BIGNUM_API bit_array *InitializeBitArrayFromUInt64(uint64_t val);
 BIGNUM_API uint64_t PowMod(uint64_t,uint64_t,uint64_t);
+BIGNUM_API bit_array *PowModBitArrays(bit_array* base,bit_array* exponent,bit_array* mod,volatile char *cancel);
 BIGNUM_API void *ReadBitArrayFloat(void *,stream_type);
 BIGNUM_API void WriteBitArrayFloat(void *,void *,stream_type);
 BIGNUM_API bit_array_float *EulersNumber(uint64_t digits,volatile char *cancel);
