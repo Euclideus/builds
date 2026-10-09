@@ -58,6 +58,9 @@ BIT_ARRAY_API void SetBitsFromChar(bit_array *ba,uint64_t pos,char c);
 BIT_ARRAY_API void SetBitsFromCharBitPos(bit_array *ba,uint64_t pos,char c);
 BIT_ARRAY_API void ClearAllBits(bit_array *ba);
 BIT_ARRAY_API uint64_t ShiftLeft64(uint64_t num,uint64_t shift);
+BIT_ARRAY_API bit_array *EnlargeBitArray(bit_array *ba, uint64_t nbits);
+BIT_ARRAY_API bit_array *CopyBitArray(bit_array *x);
+BIT_ARRAY_API void CleanBitArray(bit_array *ba);
 
 extern uint64_t one_bit_array64_h;
 extern uint32_t one_bit_array32_h;
