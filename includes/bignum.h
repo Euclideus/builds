@@ -270,22 +270,22 @@ BIGNUM_API uint64_t CiosMultiplyAccumulate(uint64_t a,uint64_t b,uint64_t c1,uin
 
 BIGNUM_API uint64_t CiosN0Prime(uint64_t n0);
 
-BIGNUM_API char CiosCompare(const uint64_t *a,const uint64_t *b,size_t L);
+BIGNUM_API char CiosCompare(const uint64_t *a,const uint64_t *b,uint64_t L);
 
-BIGNUM_API void CiosSubtract(uint64_t *out,const uint64_t *a,const uint64_t *b,size_t L);
+BIGNUM_API void CiosSubtract(uint64_t *out,const uint64_t *a,const uint64_t *b,uint64_t L);
 
 BIGNUM_API void CiosMontgomeryMultiplySub(uint64_t *out,const uint64_t *A,const uint64_t *B,const uint64_t *N,
                                           uint64_t n0_inv,size_t L,uint64_t *t);
 
 BIGNUM_API void CiosMontgomeryExp(uint64_t *out,const uint64_t *base_mont,
-                                  const uint64_t *exp,size_t exp_limbs,
+                                  const uint64_t *exp,uint64_t exp_limbs,
                                   const uint64_t *N,uint64_t n0_inv,
-                                  const uint64_t *one_mont,size_t L,
+                                  const uint64_t *one_mont,uint64_t L,
                                   uint64_t *t);
 
-BIGNUM_API char CiosMillerRabinWitness(const uint64_t *a,const uint64_t *N,size_t L,
+BIGNUM_API char CiosMillerRabinWitness(const uint64_t *a,const uint64_t *N,uint64_t L,
                                        const uint64_t *R2_mod_N,uint64_t n0_inv,
-                                       const uint64_t *d,size_t d_limbs,size_t s,
+                                       const uint64_t *d,uint64_t d_limbs,uint64_t s,
                                        const uint64_t *one_mont,
                                        const uint64_t *n_minus_one_mont,
                                        uint64_t *a_mont,uint64_t *x,
