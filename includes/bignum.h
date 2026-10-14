@@ -190,7 +190,8 @@ BIGNUM_API void RandomizeBitArray(bit_array *ba,cha_cha_20_state *ccstate);
 
 BIGNUM_API char MillerRabinPrimeTest(bit_array *n,int32_t k,cha_cha_20_state *seed,volatile char *cancel);
 
-BIGNUM_API void GetPrimePair(bit_array **prime1,bit_array **prime2,uint64_t nbits,int32_t mr_its,cha_cha_20_state *seed,
+BIGNUM_API void GetPrimePair(bit_array **prime1,bit_array **prime2,uint64_t nbits,uint64_t mr_its,
+                             cha_cha_20_state *seed,
                              char *abort);
 
 BIGNUM_API bit_array *ModInverseBinaryExtendedEuclidean(bit_array *a,bit_array *m);
@@ -275,7 +276,7 @@ BIGNUM_API char CiosCompare(const uint64_t *a,const uint64_t *b,uint64_t L);
 BIGNUM_API void CiosSubtract(uint64_t *out,const uint64_t *a,const uint64_t *b,uint64_t L);
 
 BIGNUM_API void CiosMontgomeryMultiplySub(uint64_t *out,const uint64_t *A,const uint64_t *B,const uint64_t *N,
-                                          uint64_t n0_inv,size_t L,uint64_t *t);
+                                          uint64_t n0_inv,uint64_t L,uint64_t *t);
 
 BIGNUM_API void CiosMontgomeryExp(uint64_t *out,const uint64_t *base_mont,
                                   const uint64_t *exp,uint64_t exp_limbs,
@@ -296,15 +297,18 @@ BIGNUM_API char CiosMillerRabinPrimeTestSub(const uint64_t *N,uint64_t L,uint64_
                                             const uint64_t *d,uint64_t d_limbs,
                                             uint64_t s,
                                             cha_cha_20_state *ccstate);
-BIGNUM_API char CiosMillerRabinPrimeTest(bit_array *n,int32_t k,cha_cha_20_state *ccstate,volatile char *cancel);
 
-BIGNUM_API uint32_t FastBitArrayMod32(bit_array *N, uint32_t p);
+BIGNUM_API char CiosMillerRabinPrimeTest(bit_array *n,uint64_t k,cha_cha_20_state *ccstate,volatile char *cancel);
+
+BIGNUM_API uint32_t FastBitArrayMod32(bit_array *N,uint32_t p);
 
 BIGNUM_API void PrimeSearch(bit_array **prime1,bit_array *prime2,double *primes,
-                       int32_t mr_its,cha_cha_20_state *seed,char *abort);
+                            uint64_t mr_its,cha_cha_20_state *seed,char *abort);
 
-BIGNUM_API void GetPrimePair(bit_array **prime1,bit_array **prime2,uint64_t nbits,int32_t mr_its,
-                             cha_cha_20_state *seed,
-                             char *abort);
+BIGNUM_API void GenerateRsaKeys(uint64_t nbits,uint64_t nits_mr,bit_array **publ_n,bit_array **publ_e,
+                                bit_array **priv_p,bit_array **priv_q,bit_array **priv_d,cha_cha_20_state *ccstate,
+                                char *cancel);
+
+BIGNUM_API bit_array *CiosPowModBitArrays(bit_array *base,bit_array *exponent,bit_array *mod,volatile char *cancel);
 
 #endif
