@@ -140,6 +140,9 @@ BIGNUM_API bit_array_float *SquareRootBitArray(bit_array *ba2,uint64_t precision
 
 BIGNUM_API bit_array *FloorDivideBitArrays(bit_array *ba1,bit_array *ba2,volatile char *cancel);
 
+BIGNUM_API bit_array *FloorDivideBitArraysWithRemainder(bit_array *ba1,bit_array *ba2,bit_array **rem,
+                                                        volatile char *cancel);
+
 BIGNUM_API bit_array *LowerBits(bit_array *ba,uint64_t nbits);
 
 BIGNUM_API bit_array_float *AddBitArrayFloats(bit_array_float *baf1,bit_array_float *baf2);
@@ -306,9 +309,16 @@ BIGNUM_API void PrimeSearch(bit_array **prime1,bit_array *prime2,double *primes,
                             uint64_t mr_its,cha_cha_20_state *seed,char *abort);
 
 BIGNUM_API void GenerateRsaKeys(uint64_t nbits,uint64_t nits_mr,bit_array **publ_n,bit_array **publ_e,
-                                bit_array **priv_p,bit_array **priv_q,bit_array **priv_d,cha_cha_20_state *ccstate,
+                                bit_array **priv_p,bit_array **priv_q,bit_array **priv_d,bit_array **dp,
+                                bit_array **dq,bit_array **qInv,cha_cha_20_state *ccstate,
                                 char *cancel);
 
 BIGNUM_API bit_array *CiosPowModBitArrays(bit_array *base,bit_array *exponent,bit_array *mod,volatile char *cancel);
+
+BIGNUM_API bit_array *CRTDecrypt(bit_array *cipher,bit_array *p,bit_array *q,bit_array *d,
+                                 bit_array *dp,bit_array *dq,bit_array *qInv,
+                                 char *cancel);
+
+BIGNUM_API bit_array *MaskGenerationFunction1(uint8_t *seed,uint64_t seedByteCount,uint64_t maskBitCount);
 
 #endif
