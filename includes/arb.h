@@ -579,6 +579,8 @@ ARB_API char *HashWithSalt(char *,char *);
 ARB_API double HeavisideFunc(double);
 ARB_API void HessenbergReduction(cmplx **,cmplx **);
 ARB_API uint8_t HexDigitToDecimal(char);
+ARB_API char HexToNibble(char);
+ARB_API char HexCharPairToByte(char,char,uint8_t *);
 ARB_API uint8_t HexByteToDecimal(char *);
 ARB_API double **Histogram(double *,int32_t);
 ARB_API int32_t **HistogramD(int32_t *);
