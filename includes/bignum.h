@@ -317,10 +317,17 @@ BIGNUM_API void GenerateRsaKeys(uint64_t nbits,uint64_t nits_mr,bit_array **publ
 
 BIGNUM_API bit_array *CiosPowModBitArrays(bit_array *base,bit_array *exponent,bit_array *mod,volatile char *cancel);
 
-BIGNUM_API bit_array *CRTDecrypt(bit_array *cipher,bit_array *p,bit_array *q,bit_array *d,
+BIGNUM_API bit_array *CRTPowModBitArrays(bit_array *cipher,bit_array *p,bit_array *q,bit_array *d,
                                  bit_array *dp,bit_array *dq,bit_array *qInv,
                                  char *cancel);
 
 BIGNUM_API bit_array *MaskGenerationFunction1(uint8_t *seed,uint64_t seedByteCount,uint64_t maskBitCount);
+
+BIGNUM_API uint8_t *OAEP256Decode(char *label,bit_array *oaep256,uint64_t *message_size);
+BIGNUM_API bit_array *OAEP256Encode(char *label,uint8_t *message,uint64_t message_size,cha_cha_20_state *ccs);
+BIGNUM_API bit_array *OAEP256DataBlock(char *label,uint8_t *message,uint64_t msglen);
+BIGNUM_API char PSS256Decode(uint8_t *message,uint64_t msglen,bit_array *pss256);
+BIGNUM_API bit_array *PSS256Encode(uint8_t *message,uint64_t msglen,cha_cha_20_state *ccs);
+BIGNUM_API bit_array *PSS256Hash(uint8_t *message,uint64_t msglen,bit_array *salt);
 
 #endif

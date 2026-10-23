@@ -1124,6 +1124,7 @@ ARB_API int32_t SeedFrom4String(char *,int32_t);
 ARB_API int32_t SeedFromString(char *);
 ARB_API int32_t SeedFromStringP(char *);
 ARB_API char *SHA256(char *);
+ARB_API char *SHA256FromByteArray(unsigned char *,uint64_t);
 ARB_API char *SHA512(char *);
 ARB_API char *SHA512Base64(char *,char *,char);
 ARB_API char *SHA512FromByteArray(unsigned char *,uint64_t);
