@@ -1,14 +1,12 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
 #include <arb.h>
 #include <doubly_linked_list.h>
 
 typedef struct matrix{
-
   int32_t rank,size;
   void **t;
-}matrix;
+} matrix;
 
 matrix *initializeMatrix(int32_t *dims,int32_t rank);
 matrix *matrixFromVector(cmplx *v);
@@ -88,5 +86,4 @@ void removeNulls(matrix *mdest,int32_t start,int32_t end,int32_t nnulls);
 int32_t removeElement(int32_t pos,matrix *m);
 int32_t removeElements(int32_t *pos,matrix *m);
 int32_t removeColumns(int32_t *pos,matrix *m);
-
 #endif

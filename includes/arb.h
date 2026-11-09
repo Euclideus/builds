@@ -4,23 +4,19 @@
 #ifndef _CRT_NONSTDC_NO_DEPRECATE
 #define _CRT_NONSTDC_NO_DEPRECATE
 #endif
-
 #ifndef ARB_H
 #define ARB_H
-
 #ifdef __GNUC__
-#include   <dirent.h>
-#include   <unistd.h>
+#include <dirent.h>
+#include <unistd.h>
 #elif defined(_WIN32)
-#include   <dirent_win.h>
+#include <dirent_win.h>
 #elif defined(_WIN64)
-#include   <dirent_win.h>
+#include <dirent_win.h>
 #endif
-
 #include <bit_array.h>
 #include <stdio.h>
 #include <memfile.h>
-
 #if defined(_WIN32) || defined(_WIN64)
 #define ARB_EXPORTS 1
 #ifdef ARB_EXPORTS
@@ -31,11 +27,9 @@
 #else
 #define ARB_API
 #endif
-
 #ifndef NULL
 #define NULL   ((void *) 0)
 #endif
-
 #define IM1     2147483563
 #define IM2     2147483399
 #define AM      (1.0/IM1)
@@ -84,7 +78,7 @@ Zabcdefghijklmnopqrstuvwxyz"
 typedef struct cmplx{
   double r;
   double i;
-}cmplx;
+} cmplx;
 
 ARB_API double AbsC(cmplx);
 ARB_API double **AbsCM(cmplx **);
@@ -97,7 +91,7 @@ ARB_API void AddIPM(double **,double **,double **);
 ARB_API double **AddM(double **,double **);
 ARB_API cmplx **AddMC(cmplx **,cmplx **);
 ARB_API void AddPrimeFactors(double,double,bit_array *,int32_t *,
-  double **);
+                             double **);
 ARB_API cmplx Add3C(cmplx,cmplx,cmplx);
 ARB_API void AdjacentAveraging(double *,int32_t);
 ARB_API void AdjacentAveragingC(cmplx *,int32_t);
@@ -115,7 +109,7 @@ ARB_API double *AllocDouble(double);
 ARB_API int32_t *AllocInt(int32_t);
 ARB_API void Amoeba(double (*)(double *),double **,double *,double,int32_t *);
 ARB_API double AmoebaTry(double **,double *,double *,double (*)(double *),
-  int32_t,double,double *);
+                         int32_t,double,double *);
 ARB_API cmplx **AnalyticSignal(double **);
 ARB_API void AppendFilenameR(char **,char *);
 ARB_API void AppendMatrix(double ****,double **);
@@ -131,7 +125,7 @@ ARB_API cmplx ArcsinhC(cmplx);
 ARB_API cmplx ArctanC(cmplx);
 ARB_API cmplx ArctanhC(cmplx);
 ARB_API cmplx **AttachSubMatrixHarnessC(cmplx **,int32_t,int32_t,int32_t,int32_t,
-  cmplx **);
+                                        cmplx **);
 ARB_API cmplx **AttachToBlock(cmplx **,int32_t **,int32_t,int32_t,cmplx **);
 ARB_API void AugmentMatrixHC(cmplx ***,cmplx **);
 ARB_API void AugmentMatrixHL(int32_t ***,int32_t **);
@@ -145,7 +139,7 @@ ARB_API void AugmentVectorC(cmplx **,cmplx *);
 ARB_API void AugmentVectorL(int32_t **,int32_t *);
 ARB_API double **Autocorrelation(double **);
 ARB_API double **AutoSample1D(double (*)(double),double,double,double);
-ARB_API cmplx **AutoSample1DC(cmplx(*)(double),double,double,double);
+ARB_API cmplx **AutoSample1DC(cmplx (*)(double),double,double,double);
 ARB_API int32_t *BanDec(double **,int32_t,int32_t,double **,double *);
 ARB_API int32_t *BanDecC(cmplx **,int32_t,int32_t,cmplx **,double *);
 ARB_API void BanSolve(double **,int32_t,int32_t,double *);
@@ -158,24 +152,24 @@ ARB_API double BernoulliNumber(double,char *abort);
 ARB_API double *BesselFuncRoots(double,double,int32_t);
 ARB_API double BesselFuncSeries(double,double);
 ARB_API int32_t BesselFuncSub(double,double,double *,double *,double *,
-  double *);
+                              double *);
 ARB_API void BesselGammas(double,double *,double *,double *,double *);
 ARB_API cmplx BesselIFunc(double,double);
 ARB_API cmplx BesselJFunc(double,double);
 ARB_API cmplx BesselKFunc(double,double);
 ARB_API int32_t BesselModFuncSub(double,double,double *,double *,double *,
-  double *);
+                                 double *);
 ARB_API cmplx BesselYFunc(double,double);
 ARB_API double BetaFuncCF(double,double,double);
 ARB_API double BetaFuncI(double,double,double);
 ARB_API void BicubicCoefficients(double *,double *,double *,double *,double,
-  double,double **,double **);
+                                 double,double **,double **);
 ARB_API double ***BicubicInterpolation(double ***,int32_t,int32_t);
 ARB_API double **BicubicInterpolationM(double **,int32_t,int32_t);
 ARB_API void BicubicInterpolationSquare(double *,double *,double *,double *,
-  double,double,double,double,double,
-  double,double *,double *,double *,
-  double **);
+                                        double,double,double,double,double,
+                                        double,double *,double *,double *,
+                                        double **);
 ARB_API int32_t BinarySearchPos(double,double *);
 ARB_API int32_t BinarySearchPosC(double,cmplx *);
 ARB_API int32_t BinarySearchPosS(char *,char **);
@@ -184,24 +178,25 @@ ARB_API void BinToAsciiB(char *);
 ARB_API void BinToAsciiI(char *);
 ARB_API void BinToAsciiL(char *);
 ARB_API int32_t Bisection(double (*)(double),double *,double,double,double,
-  int32_t);
+                          int32_t);
 ARB_API double BisectionN(double (*)(double *),double *,int32_t,double,double,
-  double,int32_t);
+                          double,int32_t);
 ARB_API double **BlockDiagonalMatrix(double ***);
 ARB_API void BlockDimensions(int32_t **,int32_t,int32_t,int32_t *,int32_t *);
 ARB_API double *BoxMuller(int32_t,int32_t *);
 ARB_API double BoxMuller1(int32_t *,int32_t *,int32_t *,int32_t *);
 ARB_API double *BoxMuller2(int32_t,double *);
 ARB_API void BracketMinimum(double (*)(double),double,double,double *,
-  double *,double *,double *,double *,double *);
+                            double *,double *,double *,double *,double *);
 ARB_API double BrentMinimization(double (*)(double),double,double,double);
 ARB_API char *ByteArrayToString(unsigned char *,int32_t);
 ARB_API int32_t *ByteArrayToVectorL(unsigned char *,int32_t);
 ARB_API uint32_t *ByteArrayToVectorUInt32(unsigned char *,int32_t);
 ARB_API double **CartesianProduct(double *,double *,char *);
-ARB_API cmplx *CauchyFFTDerivatives(cmplx(*)(cmplx,void *),cmplx,void *,int32_t,int32_t,int32_t,volatile char *);
-ARB_API cmplx **CauchyTaylorFFTMatrixFunc(cmplx(*)(cmplx,void *),void *,cmplx **,int32_t,volatile char *);
+ARB_API cmplx *CauchyFFTDerivatives(cmplx (*)(cmplx,void *),cmplx,void *,int32_t,int32_t,int32_t,volatile char *);
+ARB_API cmplx **CauchyTaylorFFTMatrixFunc(cmplx (*)(cmplx,void *),void *,cmplx **,int32_t,volatile char *);
 ARB_API double Ceiling(double);
+ARB_API uint64_t CeilingDivisionUInt64(uint64_t a,uint64_t b);
 ARB_API int32_t CenterDistr(double *);
 ARB_API int32_t CenterDistrC(cmplx *);
 ARB_API double CenterDistribution(double **);
@@ -251,7 +246,7 @@ ARB_API cmplx ***ConvertMVVMC(cmplx ***,int32_t);
 ARB_API double ***ConvertVMMV(double ***);
 ARB_API cmplx ***ConvertVMMVC(cmplx ***);
 ARB_API double **ConvolutionC(double (*)(double),double (*)(double),double,
-  double,int32_t,double,double,int32_t);
+                              double,int32_t,double,double,int32_t);
 ARB_API double **ConvolutionD(double **,double **);
 ARB_API cmplx **ConvolutionFFT(cmplx **,cmplx **);
 ARB_API cmplx *ConvolutionFFTV(cmplx *,cmplx *);
@@ -287,31 +282,31 @@ ARB_API double Cos2PulseFunc(double);
 ARB_API double Cos4PulseFunc(double);
 ARB_API double Cos8PulseFunc(double);
 ARB_API int32_t CoulombWaveFunc(double,int32_t,double *,double *,double *,
-  int32_t,double,int32_t);
+                                int32_t,double,int32_t);
 ARB_API double CoulombWaveFuncBess(double,double,int32_t,int32_t);
 ARB_API void CoulombWaveFuncBesselSph(double,double,int32_t,double *,int32_t);
 ARB_API void CoulombWaveFuncCF(double,double,int32_t,double *,double *,
-  double *,double *,int32_t,double);
+                               double *,double *,int32_t,double);
 ARB_API int32_t CoulombWaveFuncF(double,int32_t,double *,double *,int32_t,double,
-  int32_t);
+                                 int32_t);
 ARB_API int32_t CoulombWaveFuncFPF(double,double,int32_t,double *,int32_t);
 ARB_API int32_t CoulombWaveFuncG(double,int32_t,double *,double *,int32_t,double,
-  double,int32_t);
+                                 double,int32_t);
 ARB_API double CoulombWaveFuncFPrimeSeries(double,double,int32_t,int32_t);
 ARB_API double CoulombWaveFuncFSeries(double,double,int32_t,int32_t);
 ARB_API void CoulombWaveFuncHPH(double,double,int32_t,double *,double *,double);
 ARB_API void CoulombWaveFuncIntegrateFABM(double,int32_t,double *,double *,
-  int32_t,int32_t,double,double,int32_t);
+                                          int32_t,int32_t,double,double,int32_t);
 ARB_API void CoulombWaveFuncIntegrateF0ABM(double,double *,double *,int32_t,
-  int32_t,double,double,int32_t);
+                                           int32_t,double,double,int32_t);
 ARB_API void CoulombWaveFuncIntegrateFPrimeABM(double *,double *,double *,
-  int32_t,int32_t);
+                                               int32_t,int32_t);
 ARB_API void CoulombWaveFuncIntegrateGABM(double,int32_t,double *,double *,
-  int32_t,int32_t,double,double,int32_t);
+                                          int32_t,int32_t,double,double,int32_t);
 ARB_API void CoulombWaveFuncIntegrateG0ABM(double,double *,double *,int32_t,
-  int32_t,double,double,int32_t);
+                                           int32_t,double,double,int32_t);
 ARB_API void CoulombWaveFuncIntegrateGPrimeABM(double *,double *,double *,
-  int32_t,int32_t);
+                                               int32_t,int32_t);
 ARB_API void CoulombWaveFuncNear(double *,double *,double *,double,double);
 ARB_API double Covariance(double *,double *);
 ARB_API double **CropMatrix(double **,int32_t,int32_t,int32_t,int32_t);
@@ -367,48 +362,48 @@ ARB_API double **DFT(double **,double,double,int32_t,int32_t);
 ARB_API double **DiagonalMatrix(double *);
 ARB_API cmplx **DiagonalMatrixC(cmplx *);
 ARB_API cmplx DigammaFunc(cmplx,char *);
-ARB_API cmplx **Discretize1DC(cmplx(*)(double),double,double,int32_t);
+ARB_API cmplx **Discretize1DC(cmplx (*)(double),double,double,int32_t);
 ARB_API double **DiscretizeAdaptive(double (*)(double),double,double,double);
 ARB_API void DiscretizeAdaptiveSub(double (*)(double),double,double,double,
-  double,double,double,double,double ***,
-  int32_t *);
-ARB_API cmplx **DiscretizeC(cmplx(*)(cmplx),cmplx,cmplx,int32_t);
-ARB_API cmplx **DiscretizeCC(cmplx(*)(cmplx),cmplx,cmplx,int32_t,int32_t);
-ARB_API double **DiscretizeDFT(cmplx(*)(double),double,double,int32_t);
+                                   double,double,double,double,double ***,
+                                   int32_t *);
+ARB_API cmplx **DiscretizeC(cmplx (*)(cmplx),cmplx,cmplx,int32_t);
+ARB_API cmplx **DiscretizeCC(cmplx (*)(cmplx),cmplx,cmplx,int32_t,int32_t);
+ARB_API double **DiscretizeDFT(cmplx (*)(double),double,double,int32_t);
 ARB_API double *DiscretizeDomain(double,double,int32_t);
 ARB_API cmplx *DiscretizeDomainC(double,double,int32_t);
 ARB_API double *DiscretizeDomainFFT(double,double,int32_t);
 ARB_API cmplx *DiscretizeDomainFFTC(double,double,int32_t);
 ARB_API void DiscretizeDomainIP(double *,double,double);
 ARB_API double **DiscretizeDomainN(double *,double *,int32_t *);
-ARB_API cmplx **DiscretizeFFT(cmplx(*)(double),double,double,int32_t);
-ARB_API double **DiscretizeFFTN(cmplx(*)(double *),double *,double *,int32_t *);
+ARB_API cmplx **DiscretizeFFT(cmplx (*)(double),double,double,int32_t);
+ARB_API double **DiscretizeFFTN(cmplx (*)(double *),double *,double *,int32_t *);
 ARB_API double **DiscretizeN(double (*)(double *),double *,double *,int32_t *);
 ARB_API double **DiscretizeNU(double (*)(double),double,double,double *);
-ARB_API cmplx **DiscretizeNUC(cmplx(*)(double),double,double,double *);
+ARB_API cmplx **DiscretizeNUC(cmplx (*)(double),double,double,double *);
 ARB_API double **DiscretizeN1(double (*)(double *),double,double,int32_t,int32_t,
-  double *);
+                              double *);
 ARB_API double **DiscretizeP(double (*)(double,double *),double,double,int32_t,
-  double *);
-ARB_API cmplx **DiscretizePC(cmplx(*)(double,double *),double,double,int32_t,
-  double *);
+                             double *);
+ARB_API cmplx **DiscretizePC(cmplx (*)(double,double *),double,double,int32_t,
+                             double *);
 ARB_API double **DiscretizePN(double (*)(double *,double *),double *,double *,
-  int32_t *,double *);
-ARB_API cmplx **DiscretizePNC(cmplx(*)(double *,double *),double *,double *,
-  int32_t *,double *);
+                              int32_t *,double *);
+ARB_API cmplx **DiscretizePNC(cmplx (*)(double *,double *),double *,double *,
+                              int32_t *,double *);
 ARB_API double **DiscretizeRungeKutta1D(void (*)(double,double *,double *),
-  double,double);
+                                        double,double);
 ARB_API cmplx **DiscretizeRungeKutta1DC(void (*)(double,cmplx *,cmplx *),
-  double,double);
+                                        double,double);
 ARB_API double ***DiscretizeSphericalCS3D(double (*)(double,double),double *,
-  double *);
+                                          double *);
 ARB_API double ***DiscretizeSpherical3D(double (*)(double,double,double),
-  double *,double *,double *);
+                                        double *,double *,double *);
 ARB_API double **DiscretizeV(double (*)(double *),double,double,int32_t,int32_t,
-  double *);
+                             double *);
 ARB_API double **Discretize1D(double (*)(double),double,double,int32_t);
 ARB_API double ***Discretize2D(double (*)(double,double),double,double,double,
-  double,int32_t,int32_t);
+                               double,int32_t,int32_t);
 ARB_API double Distance(double *,double *);
 ARB_API double Div(double *(*)(double *),double *,double);
 ARB_API cmplx DivC(cmplx,cmplx);
@@ -432,7 +427,7 @@ ARB_API cmplx *EigenVector(double **mat,cmplx,int32_t,int32_t *);
 ARB_API int32_t **EnumerateCombinations(int32_t,int32_t,volatile char *);
 ARB_API void EnumerateCombinationsIterSub(int32_t **,int32_t,int32_t,char *);
 ARB_API void EnumerateCombinationsSub(int32_t **,int32_t,int32_t,int32_t,int32_t,int32_t,
-  volatile char *);
+                                      volatile char *);
 ARB_API int32_t **EnumeratePermutations(int32_t,volatile char *);
 ARB_API void EnumeratePermutationsIterSub(int32_t **,char *);
 ARB_API void EnumeratePermutationsSub(int32_t **,int32_t,int32_t,int32_t *,volatile char *);
@@ -495,7 +490,7 @@ ARB_API void FFTVErr(cmplx *,cmplx *,int32_t);
 ARB_API void FFT1D(cmplx **,int32_t);
 ARB_API char *FGetS(char *,int32_t *,FILE *);
 ARB_API char *Filename(char *);
-ARB_API double FindContourRadius(cmplx(*)(cmplx,void *),cmplx,void *,int32_t,volatile char *);
+ARB_API double FindContourRadius(cmplx (*)(cmplx,void *),cmplx,void *,int32_t,volatile char *);
 ARB_API int32_t FindDeflationIndex(cmplx **,double);
 ARB_API double *FindPeaks1D(double *,double *);
 ARB_API double *FindPeaks1DC(cmplx *,double *);
@@ -512,13 +507,13 @@ ARB_API void FourierFilterC(cmplx **,double,double,double);
 ARB_API double FractionalPart(double);
 ARB_API void FrancisQRIterationsQAccumulation(cmplx **,cmplx **,cmplx *,int32_t *,double,volatile char *);
 ARB_API double FredholmInterpolation1(double **,double,double (*)(double),
-  double (*)(double,double));
-ARB_API cmplx FredholmInterpolation1C(cmplx **,double,cmplx(*)(double),
-  cmplx(*)(double,double));
+                                      double (*)(double,double));
+ARB_API cmplx FredholmInterpolation1C(cmplx **,double,cmplx (*)(double),
+                                      cmplx (*)(double,double));
 ARB_API double **Fredholm2(double (*)(double),double (*)(double,double),int32_t,
-  int32_t,int32_t,double);
-ARB_API cmplx **Fredholm21DC(cmplx(*)(double),cmplx(*)(double,double),
-  double,double,int32_t,double);
+                           int32_t,int32_t,double);
+ARB_API cmplx **Fredholm21DC(cmplx (*)(double),cmplx (*)(double,double),
+                             double,double,int32_t,double);
 ARB_API void FreeMatrixUInt32(uint32_t **t);
 ARB_API void Free(void *);
 ARB_API void FreeMatrix(double **);
@@ -620,19 +615,19 @@ ARB_API char *InsertStr(char *,char **,int32_t);
 ARB_API int32_t InsideInterval(double,double,double);
 ARB_API double Integral(double (*)(double),double,double,int32_t);
 ARB_API double Integral2(double (*)(double,double),double,double,double,
-  double,int32_t,int32_t);
+                         double,int32_t,int32_t);
 ARB_API double Integral2D(double **);
 ARB_API double IntegralD(double **,int32_t,int32_t);
 ARB_API double IntegralP(double (*)(double,double *),double,double,int32_t,
-  double *);
+                         double *);
 ARB_API double IntegralPath(double *(*)(double *),double *(*)(double),double,
-  double,int32_t);
-ARB_API cmplx IntegralPC(cmplx(*)(double,double *),double,double,int32_t,
-  double *);
+                            double,int32_t);
+ARB_API cmplx IntegralPC(cmplx (*)(double,double *),double,double,int32_t,
+                         double *);
 ARB_API double IntegralSurfaceS(double (*)(double *),double *(*)(double *),
-  double *,double *,int32_t *);
+                                double *,double *,int32_t *);
 ARB_API double IntegralSurfaceV(double *(*)(double *),double *(*)(double *),
-  double *,double *,int32_t *);
+                                double *,double *,int32_t *);
 ARB_API double *IntegralV(double *(*)(double),double,double,int32_t);
 ARB_API void Integrator(double *,double *,double *,int32_t);
 ARB_API void IntegratorC(cmplx *,double *,cmplx *,int32_t);
@@ -682,14 +677,14 @@ ARB_API int32_t **LinearInterpolationML(int32_t **,int32_t,int32_t);
 ARB_API void LinearInterpolationPts1D(double *,double *,double *,double *);
 ARB_API void LinearInterpolationPts1DC(cmplx *,double *,cmplx *,double *);
 ARB_API void LinearInterpolationPts2D(double **,double *,double *,double **,
-  double *,double *);
+                                      double *,double *);
 ARB_API double **LinearInterpolationRows(double **,int32_t);
 ARB_API double *LinearInterpolationV(double *,int32_t);
 ARB_API cmplx *LinearInterpolationVC(cmplx *,int32_t);
 ARB_API double LinearInterpolation1(double *,double *,double);
 ARB_API double ***LinearInterpolation2D(double ***,int32_t,int32_t);
 ARB_API double LinearInterpolation2D1(double **,double *,double *,double,
-  double);
+                                      double);
 ARB_API double LinearPhase(cmplx *);
 ARB_API void LinSolve(double **,double **);
 ARB_API unsigned char *LoadFileToByteArray(char *,int32_t *);
@@ -741,7 +736,7 @@ ARB_API void LUSolve(double **,double **);
 ARB_API void LUSolveC(cmplx **,cmplx **);
 ARB_API double **Matrix(int32_t,int32_t);
 ARB_API cmplx **MatrixC(int32_t,int32_t);
-ARB_API cmplx *Matrix2By2Eigenvalues(cmplx,cmplx,cmplx,cmplx, double);
+ARB_API cmplx *Matrix2By2Eigenvalues(cmplx,cmplx,cmplx,cmplx,double);
 ARB_API cmplx **Matrix2By2Eigenvectors(cmplx,cmplx,cmplx,cmplx,double);
 ARB_API void MatrixCopy(double **,double **);
 ARB_API void MatrixCopyC(cmplx **,cmplx **);
@@ -761,17 +756,17 @@ ARB_API cmplx **MatrixDiagonalBlockSqrtFunc(cmplx **);
 ARB_API cmplx **MatrixDiagonalBlockTanFunc(cmplx **);
 ARB_API cmplx **MatrixDiagonalBlockTanhFunc(cmplx **);
 ARB_API cmplx **MatrixExponentialFunc(cmplx **,volatile char *);
-ARB_API cmplx **MatrixBasicFunc(cmplx(*)(cmplx),cmplx **(*)(cmplx **),cmplx **,volatile char *);
+ARB_API cmplx **MatrixBasicFunc(cmplx (*)(cmplx),cmplx **(*)(cmplx **),cmplx **,volatile char *);
 ARB_API cmplx **MatrixArccosFunc(cmplx **,volatile char *);
 ARB_API cmplx **MatrixArccoshFunc(cmplx **,volatile char *);
 ARB_API cmplx **MatrixArcsinFunc(cmplx **,volatile char *);
 ARB_API cmplx **MatrixArcsinhFunc(cmplx **,volatile char *);
 ARB_API cmplx **MatrixArctanFunc(cmplx **,volatile char *);
 ARB_API cmplx **MatrixArctanhFunc(cmplx **,volatile char *);
-ARB_API cmplx **MatrixClusteredSchurFunc(cmplx(*)(cmplx),cmplx **(*)(cmplx **),cmplx **,int32_t **);
+ARB_API cmplx **MatrixClusteredSchurFunc(cmplx (*)(cmplx),cmplx **(*)(cmplx **),cmplx **,int32_t **);
 ARB_API uint32_t **MatrixUInt32(uint32_t,uint32_t);
 ARB_API float **MatrixF(int32_t,int32_t);
-ARB_API cmplx **MatrixFunc(cmplx(*)(cmplx,void *),void *,cmplx **,int32_t,volatile char *);
+ARB_API cmplx **MatrixFunc(cmplx (*)(cmplx,void *),void *,cmplx **,int32_t,volatile char *);
 ARB_API double **MatrixFunction(double (*)(double),double **);
 ARB_API double **MatrixFunctionTridag(double (*)(double),double *,double *);
 ARB_API int32_t **MatrixI(int32_t,int32_t);
@@ -820,15 +815,15 @@ ARB_API double MeanWindow(double *,int32_t,int32_t);
 ARB_API double Median(double *);
 ARB_API uint32_t MergeBytesToInt(unsigned char *);
 ARB_API double Metropolis1(double (*)(double *,double *),
-  double (*)(double,double *),int32_t,double *,int32_t,
-  int32_t);
+                           double (*)(double,double *),int32_t,double *,int32_t,
+                           int32_t);
 ARB_API double Min(double *);
 ARB_API double MinAbs(double *);
 ARB_API double MinC(cmplx *);
 ARB_API float MinF(float *);
 ARB_API int32_t MinI(int32_t *);
 ARB_API double MinimizeChiSquare(double **,double (*)(double,double *),
-  double *,double,double);
+                                 double *,double,double);
 ARB_API int32_t MinL(int32_t *);
 ARB_API double MinM(double **);
 ARB_API double MinMC(cmplx **);
@@ -850,7 +845,7 @@ ARB_API int32_t MomentDC(cmplx *,int32_t);
 ARB_API double MomentWindow(double *,double *,int32_t,int32_t,int32_t,double);
 ARB_API double MomentWindowD(double *,int32_t,int32_t,int32_t,double);
 ARB_API double *MonteCarloIntegral(double (*)(double *),double *,double *,
-  int32_t,int32_t *);
+                                   int32_t,int32_t *);
 ARB_API double MostFrequent(double *);
 ARB_API cmplx MulC(cmplx,cmplx);
 ARB_API cmplx MulCR(cmplx,double);
@@ -871,9 +866,9 @@ ARB_API double NewtonRaphsonN(double (*)(double *),double *,int32_t,double,int32
 ARB_API double **Niederreiter(int32_t,int32_t,int32_t *);
 ARB_API void NiederreiterCalcC2(int32_t,int32_t **);
 ARB_API void NiederreiterCalcV2(int32_t,int32_t,int32_t *,int32_t **,int32_t **,int32_t **,
-  int32_t *,int32_t *,int32_t *);
+                                int32_t *,int32_t *,int32_t *);
 ARB_API void NiederreiterPlyMul2(int32_t **,int32_t **,int32_t,int32_t *,int32_t,int32_t *,
-  int32_t *,int32_t *pc);
+                                 int32_t *,int32_t *pc);
 ARB_API void NiederreiterSetfld2(int32_t **,int32_t **,int32_t **);
 ARB_API void Niederreiter1(int32_t,int32_t *,double *);
 ARB_API int32_t NOcc(double,double *);
@@ -929,8 +924,8 @@ ARB_API double PolyFitFunction(double,double *);
 ARB_API void PolynomialFit(double *,double *,double *,double *,int32_t,int32_t);
 ARB_API double **PolynomialFit2(double *,double *,double *,int32_t);
 ARB_API void PolynomialFitPhase(cmplx **,double *,int32_t,int32_t);
-ARB_API void PolynomialFitPhaseUnweighted(cmplx**, double*, int32_t, int32_t);
-ARB_API void PopulateFFTVectors(cmplx(*)(cmplx,void *),cmplx,void *,double,cmplx *,cmplx *);
+ARB_API void PolynomialFitPhaseUnweighted(cmplx **,double *,int32_t,int32_t);
+ARB_API void PopulateFFTVectors(cmplx (*)(cmplx,void *),cmplx,void *,double,cmplx *,cmplx *);
 ARB_API double PolynomialFitFunc(double,double *);
 ARB_API int32_t Pos(double,double *);
 ARB_API int32_t PosC(cmplx,cmplx *);
@@ -954,10 +949,10 @@ ARB_API int32_t PrimeNumber(int32_t);
 ARB_API double *PrimeNumbers(double,char *);
 ARB_API double *PrimeNumbersRange(double,double,volatile char *);
 ARB_API void PrimeNumbersSieve(double,uint64_t,uint64_t,bit_array *,
-  double **);
+                               double **);
 ARB_API double *PrimeNumbersSmall(double);
 ARB_API void PrimeNumbersSub(double,uint64_t,uint64_t,bit_array *,uint64_t *,
-  double **);
+                             double **);
 ARB_API double PrimitiveRootPrime(double,char *);
 ARB_API void Print(double);
 ARB_API void PrintC(cmplx);
@@ -982,7 +977,7 @@ ARB_API void PrintVectorF(float *);
 ARB_API void PrintVectorI(int32_t *);
 ARB_API void PrintVectorL(int32_t *);
 ARB_API double Product(double (*)(double),int32_t,int32_t,int32_t);
-ARB_API cmplx ProductC(cmplx(*)(double),int32_t,int32_t,int32_t);
+ARB_API cmplx ProductC(cmplx (*)(double),int32_t,int32_t,int32_t);
 ARB_API double ProductP(double (*)(double *),double *,int32_t,int32_t,int32_t);
 ARB_API double **ProximalInterpolationM(double **,int32_t,int32_t);
 ARB_API double **ProximalInterpolationMH(double **,int32_t);
@@ -1015,7 +1010,7 @@ ARB_API char *RandomString(int32_t,int32_t *);
 ARB_API char *RandomStringAlphaNum(int32_t,int32_t *);
 ARB_API void RandomStringAlphaNumIP(int32_t,int32_t *,char *);
 ARB_API void RandomStringAlphaNumIP2(int32_t,int32_t *,int32_t *,int32_t *,int32_t *,
-  char *);
+                                     char *);
 ARB_API char *RandomStringAlphaNumP(int32_t,int32_t *);
 ARB_API char *RandomStringBracketed(char *,char *,int32_t *);
 ARB_API char *RandomStringBracketedExtASCII(char *,char *,int32_t *);
@@ -1074,10 +1069,10 @@ ARB_API void RGBToHSV(double,double,double,double *,double *,double *);
 ARB_API uint32_t RightRotate32(uint32_t,int32_t);
 ARB_API uint64_t RightRotate64(uint64_t,int64_t);
 ARB_API double **RKN(void (*)(double,double *,double *,double *),double,
-  double *,double *,double,int32_t);
+                     double *,double *,double,int32_t);
 ARB_API double **RK1(double (*)(double,double),double,double,double,int32_t);
 ARB_API double **RK2(double (*)(double,double,double),double,double,double,
-  double,int32_t);
+                     double,int32_t);
 ARB_API double Round(double);
 ARB_API double RoundDigits(double,int32_t);
 ARB_API char *RoundDoubleString(char **,int32_t);
@@ -1085,35 +1080,35 @@ ARB_API void RoundDoubleStringWithSpacePadding(char *,int32_t);
 ARB_API char *RoundIntegerString(char *,int32_t,char *);
 ARB_API double *Row(double **,int32_t);
 ARB_API void RungeKutta(double (*)(double,double,double),double,double,
-  double,double,double *,double *,int32_t);
+                        double,double,double *,double *,int32_t);
 ARB_API void RungeKuttaN(void (*)(double,double *,double *,double *),double,
-  double *,double *,double,double *,double *,int32_t);
+                         double *,double *,double,double *,double *,int32_t);
 ARB_API double RungeKuttaIntegral1D(void (*)(double,double *,double *),double,
-  double);
+                                    double);
 ARB_API double **RungeKuttaIntegrator(double *,double,double,int32_t,double,double,
-  double,double,int32_t *,int32_t *,
-  void (*)(double,double *,double *));
+                                      double,double,int32_t *,int32_t *,
+                                      void (*)(double,double *,double *));
 ARB_API void RungeKuttaCashKarp(double *,double *,double,double,double *,
-  double *,void (*)(double,double *,double *));
+                                double *,void (*)(double,double *,double *));
 ARB_API void RungeKuttaStep(double *,double *,double *,double,double,double,
-  double *,double *,double *,
-  void (*)(double,double *,double *));
+                            double *,double *,double *,
+                            void (*)(double,double *,double *));
 ARB_API cmplx RungeKuttaIntegral1DC(void (*)(double,cmplx *,cmplx *),double,
-  double);
+                                    double);
 ARB_API cmplx **RungeKuttaIntegratorC(cmplx *,double,double,int32_t,double,double,
-  double,double,int32_t *,int32_t *,
-  void (*)(double,cmplx *,cmplx *));
+                                      double,double,int32_t *,int32_t *,
+                                      void (*)(double,cmplx *,cmplx *));
 ARB_API void RungeKuttaCashKarpC(cmplx *,cmplx *,double,double,cmplx *,
-  cmplx *,void (*)(double,cmplx *,cmplx *));
+                                 cmplx *,void (*)(double,cmplx *,cmplx *));
 ARB_API void RungeKuttaStepC(cmplx *,cmplx *,double *,double,double,double,
-  double *,double *,double *,
-  void (*)(double,cmplx *,cmplx *));
+                             double *,double *,double *,
+                             void (*)(double,cmplx *,cmplx *));
 ARB_API double **RungeKuttaSampler(double *,double,double,double,double,double,
-  double,int32_t *,int32_t *,
-  void (*)(double,double *,double *));
+                                   double,int32_t *,int32_t *,
+                                   void (*)(double,double *,double *));
 ARB_API cmplx **RungeKuttaSamplerC(cmplx *,double,double,double,double,double,
-  double,int32_t *,int32_t *,
-  void (*)(double,cmplx *,cmplx *));
+                                   double,int32_t *,int32_t *,
+                                   void (*)(double,cmplx *,cmplx *));
 ARB_API char *SaltedHash(char *,int32_t *);
 ARB_API char *SaltFromHash(char *);
 ARB_API double **SavitzkyGolay(double *,double *,int32_t,int32_t,int32_t,int32_t);
@@ -1139,19 +1134,19 @@ ARB_API void ShiftRowC(cmplx **,int32_t);
 ARB_API void Shift0C(cmplx *,int32_t);
 ARB_API double Sign(double);
 ARB_API double SimpsonIntegralAdaptive(double (*)(double),double,double,
-  double);
+                                       double);
 ARB_API double SimpsonIntegralAdaptiveSub(double (*)(double),double,double,
-  double,double,double,double,double);
+                                          double,double,double,double,double);
 ARB_API double SimpsonIntegalSphericalCS3D(double ***,double *,double *,double,
-  double,double,double);
+                                           double,double,double);
 ARB_API double SimpsonIntegalSpherical3D(double ***,double *,double *,
-  double *,double,double,double,double,
-  double,double);
+                                         double *,double,double,double,double,
+                                         double,double);
 ARB_API double SimpsonIntegral1(double,double,double,double,double);
 ARB_API double SimpsonIntegral1D(double *,double *,double,double);
 ARB_API cmplx SimpsonIntegral1DC(cmplx *,double *,double,double);
 ARB_API void SimulatedAnnealing(double (*)(double *),double *,double **,
-  double *,int32_t *);
+                                double *,int32_t *);
 ARB_API cmplx SinC(cmplx);
 ARB_API double SincFunc(double);
 ARB_API cmplx SinhC(cmplx);
@@ -1163,10 +1158,10 @@ ARB_API void SmoothSplineRectangular1DC(cmplx *,double *,int32_t);
 ARB_API double SmoothSquareFunc(double,double,double,double);
 ARB_API cmplx SmoothSquareFuncC(double,double,double,double);
 ARB_API double SmoothSquareFunc2D(double,double,double,double,double,double,
-  double,double);
+                                  double,double);
 ARB_API double SmoothStepFunc(double);
 ARB_API void Sort(double *);
-ARB_API double **SortEigenvalueIndices(cmplx *, double tol);
+ARB_API double **SortEigenvalueIndices(cmplx *,double tol);
 ARB_API void SortL(int32_t *);
 ARB_API void SortMatrix(double **,int32_t,int32_t,int32_t);
 ARB_API void SortMatrixL(int32_t **,int32_t,int32_t,int32_t);
@@ -1234,7 +1229,7 @@ ARB_API double *SubV(double *,double *);
 ARB_API cmplx *SubVC(cmplx *,cmplx *);
 ARB_API double Summation(double (*)(double),int32_t,int32_t,int32_t);
 ARB_API double SummationP(double (*)(double *),double *,int32_t,int32_t,int32_t);
-ARB_API cmplx SummationC(cmplx(*)(double),int32_t,int32_t,int32_t);
+ARB_API cmplx SummationC(cmplx (*)(double),int32_t,int32_t,int32_t);
 ARB_API double SuperGaussianFilter(double,double,double,double);
 ARB_API double ***SVD(double **);
 ARB_API double SVDPythag(double,double);
@@ -1323,7 +1318,7 @@ ARB_API int32_t *Vector3L(int32_t,int32_t,int32_t);
 ARB_API double *Vector6(double,double,double,double,double,double);
 ARB_API int32_t *Vector7L(int32_t,int32_t,int32_t,int32_t,int32_t,int32_t,int32_t);
 ARB_API double *VonNeumannRejection(double (*)(double),double,double,double,
-  int32_t,int32_t *);
+                                    int32_t,int32_t *);
 ARB_API double WeightedMean(double *,double *);
 ARB_API double WeightedMeanWindow(double *,double *,int32_t,int32_t);
 ARB_API double ***WignerDistribution(cmplx **,int32_t);
@@ -1332,7 +1327,7 @@ ARB_API double **Wigner3JSymbols(double,double,double,double);
 ARB_API double Wigner3JSymbolSpecial1(double,double,double);
 ARB_API double Wigner3JSymbolSpecial2(double,double,double);
 ARB_API void Wigner3JSymbolsSpecial(double,double,double *,double *);
-ARB_API void WilkinsonDoubleShiftQAccumulation(cmplx **,cmplx **, double);
+ARB_API void WilkinsonDoubleShiftQAccumulation(cmplx **,cmplx **,double);
 ARB_API double Wrap(double,double);
 ARB_API void Write(char *,double);
 ARB_API void WriteBitArray(void *,void *,stream_type);
@@ -1383,9 +1378,6 @@ ARB_API cmplx **ZeroPadFFT(cmplx **,int32_t);
 ARB_API cmplx *ZeroPadVC(cmplx *,int32_t);
 ARB_API double **ZeroPad1D(double **,int32_t);
 ARB_API cmplx **ZeroPad1DC(cmplx **,int32_t);
-
 extern int32_t arb_counter;
 extern int32_t prime_numbers[2048];
-
-
-#endif // ARB_H
+#endif// ARB_H

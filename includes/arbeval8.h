@@ -4,15 +4,12 @@
 #ifndef _CRT_NONSTDC_NO_DEPRECATE
 #define _CRT_NONSTDC_NO_DEPRECATE
 #endif
-
 #ifndef ARBEVAL8_H
 #define ARBEVAL8_H
-
 #include <red_black_tree.h>
 #include <doubly_linked_list.h>
 #include <math.h>
 #include <memfile.h>
-
 #if defined(_WIN32) || defined(_WIN64)
 #define ARBEVAL_EXPORTS 1
 #ifdef ARBEVAL_EXPORTS
@@ -23,18 +20,13 @@
 #else
 #define ARBEVAL_API
 #endif
-
 #define WINDOWS_DESKTOP_PLATFORM_CODE 65536
 #define APPLE_DESKTOP_PLATFORM_CODE 65537
 #define UNIX_DESKTOP_PLATFORM_CODE 65538
 #define NO_PLATFORM_CODE 666666
-
 typedef struct arbeval_globals_container arbeval_globals_container;
-
 typedef struct arbenv arbenv;
-
 extern arbeval_globals_container *arbeval_globals;
-
 ARBEVAL_API char *GetLocalPath();
 ARBEVAL_API char *GetLocalOutPath();
 ARBEVAL_API void SetPlatformCode(int32_t platcode);
@@ -59,7 +51,7 @@ ARBEVAL_API void AppendHistoryItem(arbenv *ae,char *in,char *out);
 ARBEVAL_API void SetLastHistoryItemOutput(arbenv *ae,char *out);
 ARBEVAL_API unsigned char *DummyBitmap(int32_t cols,int32_t rows);
 ARBEVAL_API uint32_t **LoadBitmapToRGBMatrix(char *fname);
-ARBEVAL_API  uint32_t **DownSampleRGBMatrix(uint32_t **rgbmat,int32_t dsfact);
+ARBEVAL_API uint32_t **DownSampleRGBMatrix(uint32_t **rgbmat,int32_t dsfact);
 ARBEVAL_API void RemoveHistoryItem(arbenv *ae,int32_t indx);
 ARBEVAL_API char SetUpdateHistoryFlag(arbenv *ae,char val);
 ARBEVAL_API size_t EnvironmentSize();
@@ -98,7 +90,7 @@ ARBEVAL_API char GetCancelFlag(arbenv *ae);
 ARBEVAL_API void SetSignificantDigits(arbenv *ae,int32_t nsig);
 ARBEVAL_API void SetCancelFlag(arbenv *ae,char val);
 ARBEVAL_API arbenv *CopyEnvironment(arbenv *source,arbenv *outer,
-  int32_t cpyhist,int32_t ischild);
+                                    int32_t cpyhist,int32_t ischild);
 ARBEVAL_API void SetSeed(arbenv *ae,int32_t val);
 ARBEVAL_API char *ReadFileToString(char *path);
 ARBEVAL_API double GetEnvironmentVersion();
@@ -110,36 +102,34 @@ ARBEVAL_API int32_t GetPredefinedFunctionListSize();
 ARBEVAL_API int32_t GetEnvironmentFunctionListSize();
 ARBEVAL_API void ExportTopLevelEnv(arbenv *ae,MEM_FILE *m1);
 ARBEVAL_API void ImportTopLevelEnvironment(MEM_FILE *m1,arbenv *ae);
-
-
 ARBEVAL_API unsigned char **GeneratePlotBitmaps(char *expr,double xmin,double xmax,uint32_t nx,
-  cmplx *ymin,cmplx *ymax,
-  uint32_t dimx,uint32_t dimy,rbtree *font,
-  arbenv *ae);
+                                                cmplx *ymin,cmplx *ymax,
+                                                uint32_t dimx,uint32_t dimy,rbtree *font,
+                                                arbenv *ae);
 ARBEVAL_API unsigned char *GenerateParametricPlotBitmap(char *expr11,double tmin,
-  double tmax,int32_t nt,cmplx ymin,
-  cmplx ymax,uint32_t dimx,
-  uint32_t dimy,rbtree *font,
-  arbenv *ae);
+                                                        double tmax,int32_t nt,cmplx ymin,
+                                                        cmplx ymax,uint32_t dimx,
+                                                        uint32_t dimy,rbtree *font,
+                                                        arbenv *ae);
 ARBEVAL_API unsigned char **GenerateFourierPlotBitmaps(char *expr11,double xmin,double xmax,int32_t pow2,
-  cmplx yminsig,cmplx ymaxsig,cmplx yminspec,cmplx ymaxspec,
-  uint32_t dimx,uint32_t dimy,
-  double ***ft,char **dnames,
-  rbtree *font,arbenv *ae);
+                                                       cmplx yminsig,cmplx ymaxsig,cmplx yminspec,cmplx ymaxspec,
+                                                       uint32_t dimx,uint32_t dimy,
+                                                       double ***ft,char **dnames,
+                                                       rbtree *font,arbenv *ae);
 ARBEVAL_API unsigned char **GenerateSpectrallyFilteredPlotBitmaps(char *expr11,
-  double **tf1d1,
-  double xmin,double xmax,uint32_t dimx,
-  cmplx ymin,cmplx ymax,
-  uint32_t dimy,
-  rbtree *font,arbenv *ae);
+                                                                  double **tf1d1,
+                                                                  double xmin,double xmax,uint32_t dimx,
+                                                                  cmplx ymin,cmplx ymax,
+                                                                  uint32_t dimy,
+                                                                  rbtree *font,arbenv *ae);
 ARBEVAL_API unsigned char **GeneratePlotBitmaps2D(char *expr11,double xmin,double xmax,
-  double ymin,double ymax,uint32_t dimx,
-  uint32_t dimy,uint32_t nx,uint32_t ny,rbtree *font,
-  arbenv *ae);
+                                                  double ymin,double ymax,uint32_t dimx,
+                                                  uint32_t dimy,uint32_t nx,uint32_t ny,rbtree *font,
+                                                  arbenv *ae);
 ARBEVAL_API unsigned char **GeneratePlotBitmapsComplex(char *expr11,double xmin,
-  double xmax,double ymin,double ymax,uint32_t dimx,
-  uint32_t dimy,uint32_t nx,uint32_t ny,
-  rbtree *font,arbenv *ae);
+                                                       double xmax,double ymin,double ymax,uint32_t dimx,
+                                                       uint32_t dimy,uint32_t nx,uint32_t ny,
+                                                       rbtree *font,arbenv *ae);
 ARBEVAL_API rbtree *LoadFontFromFile(char *file);
 ARBEVAL_API void FreeFont(rbtree *font);
 ARBEVAL_API void writeRBNodeValueBitmap(void *val,void *f,stream_type st);
@@ -147,6 +137,4 @@ ARBEVAL_API void *copyRBNodeValueBitmap(void *v);
 ARBEVAL_API void *readRBNodeValueBitmap(void *f,stream_type st);
 ARBEVAL_API void freeRBNodeValueBitmap(void *v);
 ARBEVAL_API unsigned char *getBitmap(char *key,rbtree *rbt);
-
-
-#endif // ARBEVAL8_H
+#endif// ARBEVAL8_H
