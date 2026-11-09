@@ -2,3 +2,5 @@
 /.idea/.gitignore
 /.idea/editor.xml
 /.idea/vcs.xml
+/.idea/modules.xml
+/.idea/release.iml
